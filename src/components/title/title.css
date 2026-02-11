@@ -1,0 +1,21 @@
+
+  :root {
+    --pear-green: #2F7D32;
+    --text-dark: #1a1a1a;
+    --text-medium: #4b5563;
+    --bg-light: #ffffff;
+    --card-bg: #f9fafb;
+    --font-family:'Inter', sans-serif;
+    --heading-font-family:'Space Grotesk', sans-serif;
+    --background-color:#f3f4f6;
+    --title-font-size:clamp(2rem, 2vw + 0.5rem, 5rem);
+    --title-font-weight:700;
+    --text-font-size:clamp(1rem, 2vw + 0.5rem, 1.1rem);
+    --line-height:1.75
+  }
+.title{
+    text-align: center;
+    font-size: var(--title-font-size);
+    color:var(--pear-green);
+    font-family: var(--heading-font-family);
+}

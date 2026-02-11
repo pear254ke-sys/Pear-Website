@@ -1,0 +1,124 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  backdrop-filter: blur(5px); 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.header-image {
+  height: 50px;
+  width: auto;
+}
+
+.brand-name {
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  color: var(--pear-green);
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+
+}
+
+.link:hover::after, 
+.link.active::after {
+  width: 100%;
+}
+
+.link:hover {
+  color: var(--pear-green);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+
+.bar {
+  width: 28px;
+  height: 3px;
+  background-color: var(--text-dark);
+  border-radius: 2px;
+ 
+}
+
+@media (max-width: 600px) {
+  .link::after {
+    background: var(--pear-green);
+  }
+  
+  .menu-toggle { display: flex; }
+
+  .nav-bar {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-dark);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-bar.active {
+    right: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .link { font-size: 1.5rem;color:white; }
+  .is-active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .is-active .bar:nth-child(2) { opacity: 0; }
+  .is-active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+}

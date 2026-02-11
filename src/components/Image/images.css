@@ -1,0 +1,86 @@
+.hero-section {
+    position: relative;
+    height: 90vh;
+    margin: 2em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Modern rich gradient using your original olive/forest tones */
+    background: linear-gradient(135deg, #1e2901 0%, #4d5d1c 50%, #808c4e 100%);
+    overflow: hidden;
+    border-radius: 20px; /* Optional: adds rounded corners to the section */
+  }
+  
+  /* Subtle animated background effect */
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+    animation: fadeUp 1s ease-out;
+  }
+  
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+  }
+  
+  .line-one {
+    font-size: clamp(2rem, 5vw, 4rem); /* Responsive font sizing */
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  
+  .line-two {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 300;
+    color: #d1d5db; /* Light gray for contrast */
+    font-style: italic;
+  }
+  
+  .hero-divider {
+    width: 80px;
+    height: 4px;
+    background: #fbbf24; /* Gold accent color */
+    margin: 2rem auto;
+    border-radius: 2px;
+  }
+  
+  .hero-tagline {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-section {
+      height: 70vh;
+    }
+  }
+  

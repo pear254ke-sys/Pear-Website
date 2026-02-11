@@ -1,0 +1,51 @@
+/* Container Box */
+.review-card {
+    width: 100%; 
+    max-width: 200px; /* Optional: keep it from getting TOO big on large screens */
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 16px; /* Rounded card corners */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Modern subtle shadow */
+    text-align: center; /* Centers text and inline elements */
+    font-family: 'Inter', sans-serif;
+  }
+ 
+  
+  /* Circular Image Container */
+  .image-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem auto; /* Centers the circle and adds bottom spacing */
+    border-radius: 50%; /* Essential for the circular shape */
+    overflow: hidden; /* Clips the image into a circle */
+    border: 3px solid #f0f0f0;
+  }
+  
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .heading {
+    font-size: 1rem;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .review-text {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #4a5568;
+    line-height: 1.5;
+    margin: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .review-text::before{
+    content: "`";
+  }
+  .review-text::after{
+    content:"`"
+  }

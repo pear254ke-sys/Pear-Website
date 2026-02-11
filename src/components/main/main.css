@@ -1,0 +1,15 @@
+.main-class{
+    display:flex;
+    flex-direction: column;
+    padding: 2em;
+    position:relative;
+    min-height: 100vh;      
+}
+.main{
+    display:flex;
+    flex-direction: column;
+    padding:2em;
+    justify-content: center;
+    
+}
+  

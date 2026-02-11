@@ -1,0 +1,24 @@
+.carousel .slide { 
+    padding: 20px 10px; 
+    
+}
+
+.carousel-root {
+    max-width: 100%;
+  }
+  .carousel.carousel-slider {
+    overflow: hidden; 
+  }
+  .slide{
+    box-sizing: border-box
+  }
+  .carousel-root {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+}
+.carousel.carousel-slider {
+    overflow: visible !important;
+    margin: 2rem auto; 
+
+padding:2em;}

@@ -1,0 +1,58 @@
+:root {
+    --pear-green: #2F7D32;
+    --text-dark: #1a1a1a;
+    --text-medium: #4b5563;
+    --bg-light: #ffffff;
+    --card-bg: #f9fafb;
+    --font-family:'Inter', sans-serif;
+    --heading-font-family:'Space Grotesk', sans-serif;
+    --background-color:#f3f4f6;
+    --title-font-size:clamp(2rem, 2vw + 0.5rem, 5rem);
+    --title-font-weight:700;
+    --text-font-size:clamp(1rem, 2vw + 0.5rem, 1.1rem);
+    --line-height:1.75
+  }
+.section{
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap:2em;   
+  overflow: hidden;
+  margin:4em 0;
+}
+.section-image{
+display:none;
+    width: clamp(400px, 20vw, 100px); 
+}
+.section-content{
+    display:flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    align-items: left;
+
+}
+.section-paragraph{
+    font-size: var(--text-font-size);
+    color: var(--text-dark);
+    line-height: var(--line-height);
+    margin-bottom: 20px;
+    letter-spacing:var(--line-height);
+    word-spacing:var(--line-height);
+    font-family: var(--font-family);
+}
+.section-heading{
+    margin: 0 0 10px;
+    font-size: var(--title-font-size) ;
+    font-family:var(--heading-font-family);
+}
+@media screen and (width >= 600px) {
+.section{
+    flex-direction: row;
+}
+.section-image{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+  }

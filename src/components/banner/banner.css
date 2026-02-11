@@ -1,0 +1,54 @@
+
+.banner-container{
+    width: 100%;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6em;
+    justify-content: flex-start;
+    background-image: url("../../assets/bg.png");
+    background-position: right top;
+    background-size: 40% 50%;
+    background-repeat: no-repeat;
+    padding-top: 1em;
+    gap:1em;
+}
+.banner-content{
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+}
+.banner-heading{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: var(--title-font-size);
+    color:var(--pear-green);
+    font-family: var(--heading-font-family);
+}
+.banner-image{
+    width: clamp(500px, 20vw, 300px); 
+    height: auto;
+}
+.btn{
+    color:var(--btn-text);
+    background-color:var(--pear-green); 
+    padding: 0.6rem 0rem;
+    text-decoration: none;          
+    position: relative;
+    text-align: center;
+    transition: color 0.2s ease;
+    border-radius: 10px;
+}
+.btn:hover {
+    background-color: var(--hover-color);   
+    cursor: pointer;      
+  }
+  @media screen and (width >= 600px) {
+    .banner-container{
+        background-position: right top;
+    background-size: 30% 70%;
+    background-repeat: no-repeat;
+    }
+  }

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './accordion.css';
-import AccordionItem from "../accordion_item/Accordion_item"
-import {accordianData} from "../../utils/data"
+import AccordionItem from "../accordion_item/Accordion_item";
+import { accordianData } from "../../utils/data";
+
 function Accordion() {
   const [openId, setOpenId] = useState(null);
+
   const handleToggle = (id) => {
-    setOpenId(openId === id ? null : id); // Only one open at a time
+    setOpenId(openId === id ? null : id); 
   };
 
   return (
@@ -14,8 +16,8 @@ function Accordion() {
         <AccordionItem
           key={item.id}
           id={item.id}
-          title={item.title}
-          content={item.content}
+          heading={item.heading}
+          text={item.text} // Changed from item.content to item.text to match your data
           isOpen={openId === item.id}
           onClick={() => handleToggle(item.id)}
         />
@@ -23,4 +25,5 @@ function Accordion() {
     </div>
   );
 }
-export default Accordion
+
+export default Accordion;

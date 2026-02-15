@@ -4,7 +4,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // later: connect to API / email service
+    // later:add email
     console.log("Form submitted");
   };
 

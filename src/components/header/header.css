@@ -74,9 +74,10 @@
   flex-direction: column;
   gap: 6px;
   cursor: pointer;
-  background: none;
+  background-color: white;
   border: none;
   z-index: 1001;
+
 }
 
 .bar {

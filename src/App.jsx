@@ -36,7 +36,7 @@ function App() {
     const slowScroll = (e) => {
       e.preventDefault();
       window.scrollBy({
-        top: e.deltaY * 0.8, // 🔽 lower = slower
+        top: e.deltaY * 0.8,
         left: 0,
         behavior: "smooth",
       });

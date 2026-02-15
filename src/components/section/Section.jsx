@@ -14,8 +14,8 @@ function Section(props) {
         mm.add("(max-width: 768px)", () => {
             gsap.from(elementRef.current, {
                 y: 100,             
-                opacity: 0,
-                duration: 4,
+                opacity: 0.5,
+                duration: 2,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: elementRef.current,
@@ -34,12 +34,12 @@ function Section(props) {
                 rotationZ: direction ? -5 : 5, 
                 opacity: 0,
                 scale: 1,         
-                duration: 4,       
+                duration: 2,       
                 ease: "expo.out", 
                 scrollTrigger: {
                     trigger: elementRef.current,
                     start: "top 50%", 
-                    toggleActions: "play none none none",
+                    toggleActions: "play play none none",
                 }
             });
         });

@@ -29,9 +29,7 @@ function Header() {
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
+
         </button>
       </div>
     </header>

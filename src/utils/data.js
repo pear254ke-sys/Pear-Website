@@ -54,5 +54,5 @@ const serviceData=[{
 
     }
 }]
-
-export {sectionData,accordianData,reviewData,serviceData}
+const appData=[{id:1,heading:"Camshare",image:"🌐",status:"complete"}]
+export {sectionData,accordianData,reviewData,serviceData,appData}

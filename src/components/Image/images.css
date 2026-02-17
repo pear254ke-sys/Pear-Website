@@ -11,7 +11,6 @@
     border-radius: 20px; /* Optional: adds rounded corners to the section */
   }
   
-  /* Subtle animated background effect */
   .hero-overlay {
     position: absolute;
     top: 0;
@@ -37,7 +36,7 @@
   }
   
   .line-one {
-    font-size: clamp(2rem, 5vw, 4rem); /* Responsive font sizing */
+    font-size: clamp(2rem, 5vw, 4rem); 
     font-weight: 800;
     letter-spacing: -1px;
     color: #ffffff;
@@ -47,14 +46,14 @@
   .line-two {
     font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 300;
-    color: #d1d5db; /* Light gray for contrast */
+    color: #d1d5db;
     font-style: italic;
   }
   
   .hero-divider {
     width: 80px;
     height: 4px;
-    background: #fbbf24; /* Gold accent color */
+    background: #fbbf24; 
     margin: 2rem auto;
     border-radius: 2px;
   }

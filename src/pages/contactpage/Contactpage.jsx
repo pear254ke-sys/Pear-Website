@@ -1,4 +1,5 @@
 import "./contact.css";
+import "../../App.css"
 
 const Contact = () => {
   const handleSubmit = (e) => {

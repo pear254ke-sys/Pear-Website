@@ -1,5 +1,6 @@
 import React from "react";
-import "./footer.css"; // Ensure this path is correct
+import "./footer.css";
+import "../../App.css"
 import facebook from "../../assets/facebook.png";
 import instagram from "../../assets/instagram.png";
 import github from "../../assets/github.png";

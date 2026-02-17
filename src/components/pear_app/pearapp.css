@@ -1,0 +1,45 @@
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .project-icon-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+  }
+  
+  .project-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--pear-green);
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .project-name {
+    font-weight: 500;
+    color: var(--text-dark);
+  }
+  
+  .project-status {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 9999px; 
+  }
+  
+  .status-soon { color: #f59e0b; background-color: #fffbeb; }
+  .status-progress { color: #10b981; background-color: #ecfdf5; }
+  .status-planned { color: #6366f1; background-color: #eef2ff; }
+  

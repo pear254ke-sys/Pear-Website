@@ -1,26 +1,10 @@
-
-:root {
-    --pear-green: #808C4E;
-    --text-dark: #1a1a1a;
-    --text-medium: #4b5563;
-    --bg-light: #ffffff;
-    --card-bg: #f9fafb;
-    --font-family:'Inter', sans-serif;
-    --background-color:#f3f4f6;
-    --title-font-size:1.5rem;
-    --title-font-weight:700;
-  }
-  
-  body {
-    font-family: var(--font-family);
-    background-color:  var(--background-color);
-    margin: 0;
-    padding: 0;
-  }
-  
-  .main-content {
+.main-content {
     max-width: 800px;
-    margin: 20px auto; 
+    margin:5rem auto;
+    font-family: var(--font-family);
+    background-color:  var(--bg-light-smoke); 
+    padding:0.5em;
+    border-radius:10px;
   }
   
   .section-title {
@@ -37,55 +21,7 @@
     line-height: 1.5;
   }
 
-  .project-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .project-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--card-bg);
-    padding: 16px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  }
-  
-  .project-icon-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-  }
-  
-  .project-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background-color: var(--pear-green);
-    border-radius: 50%;
-    color: white;
-    font-size: 18px;
-  }
-  
-  .project-name {
-    font-weight: 500;
-    color: var(--text-dark);
-  }
-  
-  .project-status {
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 9999px; 
-  }
-  
-  .status-soon { color: #f59e0b; background-color: #fffbeb; }
-  .status-progress { color: #10b981; background-color: #ecfdf5; }
-  .status-planned { color: #6366f1; background-color: #eef2ff; }
+ 
   
   .demo-section {
       margin-top: 3rem;
@@ -132,13 +68,11 @@
   }
   
   .demo-illustration {
-    /* This is where your network graphic goes. Use an <img> tag in HTML */
     min-height: 150px;
     background-color: #e0f2fe; 
-    /* Add styling here for your image if you use a div placeholder */
   }
   
-  /* --- Follow Pear Title Section --- */
+
   .follow-section-title .section-title {
       text-align: center;
   }

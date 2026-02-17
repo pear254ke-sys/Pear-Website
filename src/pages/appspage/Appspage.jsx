@@ -1,5 +1,7 @@
 import "./appspage.css"
+import "../../App.css"
 import GameCanvas from "../../components/game/CanvasGame"
+import PearApps from "../../components/pear_apps/PearApps"
 export default function AppsPage(){
     return(
         <main class="main-content">
@@ -9,30 +11,7 @@ export default function AppsPage(){
             See our projects and try out an interactive demo to understand the
             potential of peer-powered technologies.
           </p>
-      
-          <div class="project-list">
-            <div class="project-item">
-              <div class="project-icon-wrapper">
-                <span class="project-icon">🌐</span> 
-                <span class="project-name">Pear Network</span>
-              </div>
-              <span class="project-status status-soon">Coming Soon</span>
-            </div>
-            <div class="project-item">
-              <div class="project-icon-wrapper">
-                <span class="project-icon">🎧</span>
-                <span class="project-name">AudioShare</span>
-              </div>
-              <span class="project-status status-progress">In Progress</span>
-            </div>
-            <div class="project-item">
-              <div class="project-icon-wrapper">
-                <span class="project-icon">📸</span>
-                <span class="project-name">CamShare</span>
-              </div>
-              <span class="project-status status-planned">Planned</span>
-            </div>
-          </div>
+      <PearApps/>
         </section>
         <section class="demo-section">
           <div class="demo-card">

@@ -6,6 +6,7 @@ import Accordion from "../../components/accordion/Accordion"
 import Cards from "../../components/card_grid/Cards"
 import Images from "../../components/Image/Images"
 import "./homepage.css"
+import "../../App.css"
 export default function Homepage(){
     return(
       <div className="body">

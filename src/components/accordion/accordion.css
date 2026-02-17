@@ -1,5 +1,6 @@
 
 .accordion-container {
+  font-family: var(--font-family);
     width: 100%;
     max-width: 800px;
     margin: 2rem auto;

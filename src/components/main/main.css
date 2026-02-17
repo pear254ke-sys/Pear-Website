@@ -3,7 +3,9 @@
     flex-direction: column;
     padding: 2em;
     position:relative;
-    min-height: 100vh;      
+    min-height: 100vh;  
+    position: relative;    
+    background-color: red;
 }
 .main{
     display:flex;

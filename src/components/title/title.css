@@ -1,6 +1,21 @@
-.title{
+.title-heading{
     text-align: center;
     font-size: var(--title-font-size);
     color:var(--pear-green);
     font-family: var(--heading-font-family);
 }
+.title {
+    position: relative;
+    display: inline-flex;   
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../../assets/vertical_vine.png");
+    background-repeat: no-repeat;     
+    background-position: center bottom;
+    background-size: 200px auto;     
+    padding-bottom: 100px;
+               
+  }
+  
+  
+  

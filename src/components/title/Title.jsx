@@ -22,8 +22,8 @@ function Title(props) {
   }, { scope: container });
 
   return (
-    <div ref={container}>
-      <h1 className="title">{props.title}</h1>
+    <div ref={container} className="title">
+      <h1 className="title-heading">{props.title}</h1>
     </div>
   );
 }

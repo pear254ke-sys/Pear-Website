@@ -9,11 +9,11 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="header-container">
-        <div className="logo-container">
+      <section className="header-container">
+        <article className="logo-container">
           <img src={pear} alt="Pear Logo" className='header-image' />
           <span className="brand-name">PEAR</span>
-        </div>
+        </article>
 
         <nav className={`nav-bar ${isOpen ? 'active' : ''}`}>
           <ul className="nav-links">
@@ -31,7 +31,7 @@ function Header() {
         >
 
         </button>
-      </div>
+      </section>
     </header>
   );
 }

@@ -6,18 +6,18 @@ function Services(){
 return <Service key={service.id} heading={service.heading} text={service.text} skills={service.skills}/>
     })
     return(
-        <section class="services" id="services">
+        <main class="services" id="services">
         <div class="services-container">
-          <div class="services-header">
+          <article class="services-header">
             <h2>Our Services</h2>
             <p>We build fast, scalable, and user-focused digital products.</p>
-          </div>
+          </article>
       
-          <div class="services-grid">
+          <section class="services-grid">
             {services}
-          </div>
-          </div>
           </section>
+          </div>
+          </main>
     )
 }
 export default Services

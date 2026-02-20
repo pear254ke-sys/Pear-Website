@@ -9,7 +9,7 @@ import "./homepage.css"
 import "../../App.css"
 export default function Homepage(){
     return(
-      <div className="body">
+      <body className="body">
          <Banner />
           <Title title="Driven By Ideas" />
           <Main />
@@ -19,7 +19,7 @@ export default function Homepage(){
           <Title title="Meet The Founders" />
           <Cards/>
          <Images/>
-      </div>
+      </body>
     )}
        
         

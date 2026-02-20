@@ -5,8 +5,8 @@ function PearApps(){
     const apps=appData.map((app)=>{
 return <PearApp heading={app.heading} image={app.image}/>
     })
-    return ( <div class="project-list">
+    return ( <section class="project-list">
         {apps}
-    </div>)
+    </section>)
 }
 export default PearApps

@@ -27,11 +27,14 @@ display:none;
     letter-spacing:var(--line-height);
     word-spacing:var(--line-height);
     font-family: var(--font-family);
+    text-align: center;
 }
 .section-heading{
     margin: 0 0 10px;
     font-size: var(--title-font-size) ;
     font-family:var(--heading-font-family);
+    text-align: center;
+    color:var(--pear-green);
 }
 @media screen and (width >= 600px) {
 .section{

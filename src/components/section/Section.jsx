@@ -50,14 +50,14 @@ function Section(props) {
     return (
         <section className="section" ref={elementRef}>
             {props.direction==="right" ?  <><img src={props.image} className="section-image" alt="section" />
-            <div className="section-content">
+            <article className="section-content">
                 <h1 className="section-heading">{props.heading}</h1>
                 <p className="section-paragraph">{props.body}</p>
-            </div></> :    <>
-            <div className="section-content">
+            </article></> :    <>
+            <article className="section-content">
                 <h1 className="section-heading">{props.heading}</h1>
                 <p className="section-paragraph">{props.body}</p>
-            </div>
+            </article>
             <img src={props.image} className="section-image" alt="section" /></>}
            
         

@@ -1,11 +1,11 @@
 import Card from "../card/Card"
 import "./cards.css"
 function Cards(){
-    return(<div class="wrapper">
+    return(<section class="wrapper">
 <Card/>
 <Card/>
 <Card/>
 
-    </div>)
+    </section>)
 }
 export default Cards

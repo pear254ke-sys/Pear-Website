@@ -2,7 +2,7 @@ import "./accordion_item.css";
 
 const AccordionItem = (props) => {
   return (
-    <div className="accordion-item">
+    <article className="accordion-item">
       <button
         className={`accordion-header ${props.isOpen ? 'active' : ''}`}
         onClick={props.onClick}
@@ -18,11 +18,11 @@ const AccordionItem = (props) => {
           transition: 'max-height 0.3s ease' 
         }} 
       >
-        <div className="accordion-content">
+        <span className="accordion-content">
           {props.text}
-        </div>
+        </span>
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -10,11 +10,11 @@ function Service(props) {
   });
 
   return (
-    <div className="service-card">
+    <section className="service-card">
       <h3>{props.heading}</h3>
       <p>{props.text}</p>
       <ul>{skills}</ul>
-    </div>
+    </section>
   );
 }
 

@@ -11,18 +11,18 @@ function Accordion() {
   };
 
   return (
-    <div className="accordion-container">
+    <section className="accordion-container">
       {accordianData.map((item) => (
         <AccordionItem
           key={item.id}
           id={item.id}
           heading={item.heading}
-          text={item.text} // Changed from item.content to item.text to match your data
+          text={item.text} 
           isOpen={openId === item.id}
           onClick={() => handleToggle(item.id)}
         />
       ))}
-    </div>
+    </section>
   );
 }
 

@@ -1,5 +1,5 @@
 import startGame from "./main"
-export function canvasGame(canvas) {
+function canvasGame(canvas) {
   let running=true
 startGame(canvas,running)  
 

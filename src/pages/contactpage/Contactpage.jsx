@@ -1,5 +1,6 @@
 import "./contact.css";
 import "../../App.css"
+import Title from "../../components/title/Title"
 
 const Contact = () => {
   const handleSubmit = (e) => {
@@ -14,7 +15,7 @@ const Contact = () => {
          <section className="contact" id="contact">
       <div className="contact-container">
         <div className="contact-header">
-          <h2>Contact Us</h2>
+        <Title title="Contact Us" />
           <p>
             Have a project in mind or just want to say hi?
             Fill the form and we’ll get back to you.

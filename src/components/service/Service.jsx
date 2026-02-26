@@ -1,4 +1,5 @@
 import "./service.css";
+import Title from "../../components/title/Title"
 function Service(props) {
   const skills = Object.entries(props.skills).map(([key, value], index) => {
     return (
@@ -12,6 +13,7 @@ function Service(props) {
   return (
     <section className="service-card">
       <h3>{props.heading}</h3>
+
       <p>{props.text}</p>
       <ul>{skills}</ul>
     </section>

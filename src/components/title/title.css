@@ -6,7 +6,7 @@
 }
 .title {
     position: relative;
-    display: inline-flex;   
+    display: flex;   
     flex-direction: column;
     align-items: center;
     background-image: url("../../assets/vertical_vine.png");

@@ -1,12 +1,14 @@
 import "./appspage.css"
 import "../../App.css"
 import GameCanvas from "../../components/game/CanvasGame"
+import Title from "../../components/title/Title"
 import PearApps from "../../components/pear_apps/PearApps"
 export default function AppsPage(){
     return(
         <main class="main-content">
         <section class="projects-section">
-          <h1 class="section-title">Explore What We Built</h1>
+          {/* <h1 class="section-title">Explore What We Built</h1> */}
+          <Title title="Explore What We Built" />
           <p class="section-subtitle">
             See our projects and try out an interactive demo to understand the
             potential of peer-powered technologies.

@@ -7,13 +7,20 @@
     align-items: center;
     margin-top: 6em;
     justify-content: flex-start;
-    background-image: url("../../assets/bg.png");
-    background-position: right top;
-    background-size: 40% 50%;
-    background-repeat: no-repeat;
     padding-top: 1em;
     gap:1em;
 }
+.background {
+    position: absolute; 
+    right: 0;
+    top: 30%;
+    z-index: 1; 
+    width: 40%; 
+    height: 50%; 
+    object-position: right top; 
+    object-fit: cover; 
+}
+
 .banner-content{
     display: flex;
     flex-direction: column;

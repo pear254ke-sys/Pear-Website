@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router';
 import pear from '../../assets/dark_logo.png';
 import './header.css';
-
+import { ModeContext } from '../../utils/ModeContext';
+import { useContext } from "react"
+import { useTheme } from '../../theme';
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
-
+  const { mode, toggleMode, data } = useContext(ModeContext)
+  const { theme, toggleTheme } = useTheme();
+  const handleClick = (event) => {
+  toggleMode()
+  toggleTheme()
+  };
   return (
     <header className="header">
       <section className="header-container">
@@ -23,7 +30,7 @@ function Header() {
             <li><NavLink to="/contact" className="link" onClick={() => setIsOpen(false)}>Contact Us</NavLink></li>
           </ul>
         </nav>
-
+<button onClick={handleClick}>+</button>
         <button 
           className={`menu-toggle ${isOpen ? 'is-active' : ''}`} 
           onClick={toggleMenu}

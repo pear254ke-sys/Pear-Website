@@ -1,36 +1,38 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./pages/layoutpage/Layoutpage";
 import Homepage from "./pages/homepage/Homepage";
 import Servicepage from "./pages/servicespage/Servicepage";
 import Contactpage from "./pages/contactpage/Contactpage";
 import AppsPage from "./pages/appspage/Appspage";
 import { useEffect } from "react";
+import { ModeProvider } from "./utils/ModeContext";
+import { ThemeProvider } from "./theme";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />, 
+    element: <Layout />,
     children: [
       {
-        path:"/",
-        index: true,   
-        element: <Homepage/>,
+        index: true,
+        element: <Homepage />,
       },
       {
-        path:"/services", 
-        element: <Servicepage/>,
+        path: "/services",
+        element: <Servicepage />,
       },
       {
-        path:"/contact", 
-        element: <Contactpage/>,
+        path: "/contact",
+        element: <Contactpage />,
       },
       {
-        path:"/apps", 
-        element: <AppsPage/>,
+        path: "/apps",
+        element: <AppsPage />,
       },
-    
     ],
   },
 ]);
+
 function App() {
   useEffect(() => {
     const slowScroll = (e) => {
@@ -41,15 +43,18 @@ function App() {
         behavior: "smooth",
       });
     };
-  
+
     window.addEventListener("wheel", slowScroll, { passive: false });
-  
+
     return () => window.removeEventListener("wheel", slowScroll);
   }, []);
-  
 
-  return <RouterProvider router={router} />;;
+  return (
+    <ThemeProvider>  <ModeProvider>
+    <RouterProvider router={router} />
+  </ModeProvider></ThemeProvider>
+  
+  );
 }
 
-
-export default App
+export default App;

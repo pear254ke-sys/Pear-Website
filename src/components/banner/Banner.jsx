@@ -1,7 +1,10 @@
-import banner from "../../assets/banner.svg"
+
+import { ModeContext } from "../../utils/ModeContext";
+import { useContext } from "react"
 import "./banner.css"
 import { NavLink } from 'react-router';
 function Banner(){
+    const {data} = useContext(ModeContext)
     return(
         <section className="banner-container">
             <article className="banner-content">
@@ -10,7 +13,8 @@ function Banner(){
             
             </article>
             
-<img src={banner} className="banner-image responsive-image"/>
+<img src={data.banner} className="banner-image responsive-image"/>
+<img src={data.background} className="background"/>
         </section>
     )
 }

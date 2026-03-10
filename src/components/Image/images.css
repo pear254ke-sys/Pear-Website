@@ -5,10 +5,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Modern rich gradient using your original olive/forest tones */
-    background: linear-gradient(135deg, #1e2901 0%, #4d5d1c 50%, #808c4e 100%);
+    background: var(--hero-bg);
     overflow: hidden;
-    border-radius: 20px; /* Optional: adds rounded corners to the section */
+    border-radius: 20px; 
   }
   
   .hero-overlay {

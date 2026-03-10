@@ -1,0 +1,9 @@
+.section-subtitle {
+    color: var(--text-medium);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .follow-section-title .section-title {
+      text-align: center;
+  }

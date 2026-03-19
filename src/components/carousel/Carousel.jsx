@@ -3,7 +3,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel'
-import Item from "../carousel_item/Item";
 import {reviewData} from "../../utils/data.js"
 function useWindowSize() {
     const [size, setSize] = useState(window.innerWidth);
@@ -25,5 +24,21 @@ return <Item name={review.name} heading={review.heading} text={review.text}/>
     >
  {reviews}
 </Carousel>)
+}
+function Item(props)
+{
+    return(
+       
+    <section class="review-card">
+    <article class="image-container">
+      <img src={props.image} alt="User Photo" class="profile-img"/>
+    </article>
+    <h3 class="heading">{props.name}</h3>
+    <p class="review-text">
+   {props.text}
+    </p>
+  </section>
+  
+    )
 }
 export default Reviews_Carousel

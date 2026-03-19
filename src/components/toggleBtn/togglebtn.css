@@ -1,0 +1,57 @@
+.toggle-btn {
+    width: 60px;
+    height: 32px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    transition: background 0.3s ease;
+    position: relative;
+  }
+  
+  .toggle-btn.pear {
+    background: #e8f5e9;
+  }
+  
+  .toggle-btn.gear {
+    background: #eceff1;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+  
+
+  .toggle-btn.gear .icon {
+    transform: translateX(28px);
+  }
+  
+
+  .svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  .toggle-btn.pear .svg {
+    color:#ADBD6A ;
+  }
+  
+  .toggle-btn.gear .svg {
+    color:rgb(228, 195, 13);;
+  }
+  @media (min-width: 768px) {
+    toggle-btn {
+      width: 120px;
+    height: 64px;
+    }
+    }

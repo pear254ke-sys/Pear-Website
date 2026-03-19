@@ -1,11 +1,87 @@
+/* ===== BASE (MOBILE FIRST) ===== */
 
 .accordion-container {
   font-family: var(--font-family);
-    width: 100%;
-    max-width: 800px;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.accordion-title {
+  flex: 1;
+}
+
+.accordion-collapse {
+  overflow: hidden;
+}
+
+.accordion-content {
+  display: block;
+  padding: 0 1rem 1rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.accordion-icon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion-icon.rotate {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 600px) {
+  .accordion-container {
+    max-width: 700px;
     margin: 2rem auto;
-    padding: 0 1rem;
-  
   }
-  
-  
+
+  .accordion-header {
+    padding: 1.25rem;
+    font-size: var(--text-font-size);
+  }
+
+  .accordion-content {
+    padding: 0 1.25rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+
+
+@media (min-width: 900px) {
+  .accordion-container {
+    max-width: 800px;
+  }
+
+  .accordion-header {
+    font-size: 1.1rem;
+  }
+
+  .accordion-content {
+    font-size: 1.05rem;
+  }
+}

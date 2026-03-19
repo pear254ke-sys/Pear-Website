@@ -6,7 +6,7 @@ import Contactpage from "./pages/contactpage/Contactpage";
 import AppsPage from "./pages/appspage/Appspage";
 import { useEffect } from "react";
 import { ModeProvider } from "./utils/ModeContext";
-import { ThemeProvider } from "./theme";
+
 
 const router = createBrowserRouter([
   {
@@ -50,9 +50,10 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider>  <ModeProvider>
-    <RouterProvider router={router} />
-  </ModeProvider></ThemeProvider>
+    <div className="body">  <ModeProvider>
+      <div className="main"><RouterProvider router={router} /></div>
+  </ModeProvider></div>
+    
   
   );
 }

@@ -45,7 +45,12 @@
     height: auto;
     z-index: 2;
   }
-  
+  img{
+    transition: 
+    background-color 1s ease,
+    color 1s ease,
+    border-color 1s ease;
+  }
   .btn{
     color:var(--btn-text);
     background-color:var(--pear-green); 
@@ -55,6 +60,10 @@
     text-align: center;
     transition: color 0.2s ease;
     border-radius: 10px;
+    transition: 
+    background-color 1s ease,
+    color 1s ease,
+    border-color 1s ease;
   }
   
   .btn:hover {

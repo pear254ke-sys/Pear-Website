@@ -1,0 +1,141 @@
+.bot-container {
+    display:none;
+    z-index:1000;
+}
+
+
+.pear-btn {
+    width: 55px;
+    position: fixed;
+    bottom: 8%;
+    right: 5%;
+    cursor: pointer;
+}
+
+.chat-container {
+    font-family: var(--font-family);
+    font-size: var(--text-font-size);
+    position: fixed;
+    bottom: 2%;
+    right: 5%;
+    width: 40vw;
+    height: 88vh;
+    background: #0f172a;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+
+.chat-header {
+    background: var(--pear-green);
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.logo {
+    background: var(--pear-green);
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.chat-header span {
+    font-size: 12px;
+}
+
+.close-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.message {
+    max-width: 80%;
+    padding: 12px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.message.bot {
+    background: #334155;
+}
+
+.message.user {
+    background: #84cc16;
+    margin-left: auto;
+}
+
+.suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+}
+
+.suggestions button {
+    background: #1e293b;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.input-area {
+    display: flex;
+    padding: 10px;
+    background: #020617;
+}
+
+.input-area input {
+    flex: 1;
+    background: #1e293b;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    outline: none;
+}
+
+.input-area button {
+    margin-left: 8px;
+    background: var(--pear-green);
+    border: none;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+    .bot-container{
+        display:block;
+    }
+}

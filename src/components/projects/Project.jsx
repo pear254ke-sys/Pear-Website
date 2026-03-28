@@ -1,6 +1,7 @@
 import Title from "../title/Title"
 import GameCanvas from "../game/CanvasGame"
 import {appData} from "../../utils/data"
+import { useState } from "react";
 import "./project.css"
 function Project(){
     return(<>
@@ -29,6 +30,9 @@ function PearApp(props){
     </section>)
   }
   function Demo(){
+    const [state, setState] = useState(true);
+
+    const handleClick = () => setState(prev => !prev);;
       return(<div>   <section class="projects-section">
 
         <Title title="Explore What We Built" />
@@ -44,10 +48,10 @@ function PearApp(props){
               <p class="card-description">
                 A small experiment showing how direct connections grow.
               </p>
-              <button class="try-demo-button">Try the Demo</button>
+              <button class="try-demo-button" onClick={handleClick}>   {state ? "play" : "pause"}</button>
             </div>
             <div class="demo-illustration">
-              <GameCanvas/>
+              <GameCanvas gameState={state}/>
             </div>
           </div>
         </section></div>   )

@@ -1,11 +1,8 @@
 import startGame from "./main"
-function canvasGame(canvas) {
-  let running=true
-startGame(canvas,running)  
+function canvasGame(canvas, gameStateRef) {
+  startGame(canvas, gameStateRef);
 
-    return () => {
-      running = false;
-    };
-  }
+  return () => {};
+}
 export default canvasGame
   

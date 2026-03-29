@@ -8,32 +8,32 @@ function startGame(canvas,gameStateRef){;
     STATE_WON: 2,
     STATE_GAMEOVER: 3
   };
-  
+  const pearShrinkRate=generateRandomShrinkRates(0.1,0.10)
   const PEAR = {
     PEAR_START: 2,
     PEAR_COUNT: 10,
     PEAR_RATE: 2,
     PEAR_SIZE: 50,
-    PEAR_SHRINK_RATE:0.1,
-    PEAR_GROW_RATE:100
+    PEAR_SHRINK_RATE:pearShrinkRate,
+    PEAR_GROW_RATE:5
    
   };
-  
+  const enemyShrinkRate=generateRandomShrinkRates(0.1,0.5)
   const ENEMY = {
     ENEMY_COUNT: 10,
     ENEMY_SIZE: 50,
     ENEMY_RATE: 5,
     ENEMY_START: PEAR.PEAR_START + PEAR.PEAR_COUNT * 2,
-    ENEMY_SHRINK_RATE:0.1,
-    ENEMY_GROW_RATE:100
+    ENEMY_SHRINK_RATE:enemyShrinkRate,
+    ENEMY_GROW_RATE:10
   
   };
   
   const PLAYER = {
     PLAYER_ID: 0,
     PLAYER_SIZE: 70,
-    PLAYER_SHRINK_RATE:0.01,
-    PLAYER_ENEMY_SHRINK_RATE:10,
+    PLAYER_SHRINK_RATE:0.1,
+    PLAYER_ENEMY_SHRINK_RATE:5,
     PLAYER_GROW_RATE:1,
   };
   
@@ -44,7 +44,9 @@ function startGame(canvas,gameStateRef){;
     accumulator: 0,
     FIXED_STEP: 1/60
   };
-  
+  function generateRandomShrinkRates(min, max) {
+    return Math.random() * (max - min) + min;
+  }
   function GameEntityVectors() {
     const ENTITY_SIZE = 42;
     return {
@@ -176,7 +178,12 @@ return images
     position[PLAYER.PLAYER_ID] = (clientX - rect.left) * scaleX;
     position[PLAYER.PLAYER_ID+1] = (clientY - rect.top) * scaleY;
   }
-  
+  canvas.addEventListener("pointerenter",()=>{
+    gameStateRef.current=GAME_STATES.STATE_PLAYING
+  })
+  canvas.addEventListener("pointerleave",()=>{
+    gameStateRef.current=GAME_STATES.STATE_PAUSED
+  })
   canvas.addEventListener("pointermove", e => {
     if (parseInt(gameStateRef.current) === GAME_STATES.STATE_PLAYING) {
       setPlayerPos(e.clientX, e.clientY);
@@ -184,7 +191,7 @@ return images
   },{touchAction:"none"});
   canvas.addEventListener("pointerdown", () => {
     gameStateRef.current = GAME_STATES.STATE_PLAYING;
-  });
+  },{touchAction:"none"});
   function update(dt) {
     TIMER.pearTimer += dt;
     TIMER.enemyTimer += dt;

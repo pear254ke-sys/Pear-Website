@@ -6,17 +6,14 @@ function Bot() {
     const [open, setOpen] = useState(false)
     const [messages, setMessages] = useState([
         {
-            text: "Hello! I'm your assistant 👋\n\nI'm here to help you with:\n• Account registration\n• Job application process\n• Dashboard navigation\n• Technical support\n• Requirements and deadlines\n\nHow can I assist you today?",
+            text: "Hi am you Pear assistant,how do i help you",
             sender: "bot"
         }
     ])
     const [input, setInput] = useState("")
 
     const suggestions = [
-        "How do I register?",
-        "Application process",
-        "Dashboard help",
-        "Technical support"
+{key:"what is pear",value:"We are an organization"}
     ]
 
     function sendMessage(text = input) {
@@ -29,9 +26,9 @@ function Bot() {
         setTimeout(() => {
             setMessages(prev => [
                 ...prev,
-                { text: "Working on: " + text, sender: "bot" }
+                { text: "  " + text, sender: "bot" }
             ])
-        }, 500)
+        }, 1000)
     }
 
     return (
@@ -63,9 +60,9 @@ function Bot() {
                         ))}
                     </div>
                     <div className="suggestions">
-                        {suggestions.map((s, i) => (
-                            <button key={i} onClick={() => sendMessage(s)}>
-                                {s}
+                        {suggestions.map((obj) => (
+                            <button onClick={() => sendMessage(obj.value)}>
+                                {obj.key}
                             </button>
                         ))}
                     </div>

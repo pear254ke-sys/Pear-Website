@@ -1,5 +1,6 @@
 import { gameImages } from "../../utils/data";
 function startGame(canvas,gameStateRef){;
+  window.addEventListener("resize", setGameWindow);
   const ctx = canvas.getContext("2d");
   const images=loadImages()
   const GAME_STATES = {
@@ -87,8 +88,12 @@ return images
   
   function setGameWindow() {
     const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width || 800;
-    canvas.height = rect.height || 400;
+    const dpr = window.devicePixelRatio || 1;
+  
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+  
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   function resetGame() {
     gameStateRef.current = GAME_STATES.STATE_PAUSED;
@@ -265,7 +270,7 @@ return images
     }
     else if(parseInt(gameStateRef.current) === GAME_STATES.STATE_PAUSED){
       drawEntity(images.gamePaused, 0, 0, canvas.width, canvas.height, 0);
-      resetGame()
+    
     }
   }
   

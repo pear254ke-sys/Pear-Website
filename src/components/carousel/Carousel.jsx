@@ -15,7 +15,7 @@ function useWindowSize() {
   }
 function Reviews_Carousel(){
   const reviews=reviewData.map((review)=>{
-return <Item name={review.name} heading={review.heading} text={review.text}/>
+return <Item name={review.name} heading={review.heading} text={review.text} image={review.image}/>
   })
     const width = useWindowSize();
     const percentage = width < 768 ? 80 : width < 1024 ? 45 : 25;
@@ -29,12 +29,13 @@ function Item(props)
 {
     return(
        
-    <section class="review-card">
-    <article class="image-container">
-      <img src={props.image} alt="User Photo" class="profile-img"/>
+    <section className="review-card">
+    <article className="image-container">
+      <img src={props.image} alt="User Photo" className="profile-img"/>
     </article>
-    <h3 class="heading">{props.name}</h3>
-    <p class="review-text">
+    <h3 className="heading">{props.name}</h3>
+    <p className="review-head">{props.heading}</p>
+    <p className="review-text">
    {props.text}
     </p>
   </section>

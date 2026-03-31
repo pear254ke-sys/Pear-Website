@@ -26,7 +26,7 @@ function Section(props) {
             gsap.from(elementRef.current, {
                 y: 100,             
                 opacity: 0.5,
-                duration: 2,
+                duration: 1,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: elementRef.current,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router';
-import pear from '../../assets/dark_logo.png';
+import pear from '../../assets/dark_logo.webp';
 import './header.css';
 import ToggleBtn from '../toggleBtn/ToggleBtn';
 

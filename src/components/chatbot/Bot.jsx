@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./bot.css"
-import image from "../../assets/player.png"
+import image from "../../assets/player.webp"
 
 function Bot() {
     const [open, setOpen] = useState(false)

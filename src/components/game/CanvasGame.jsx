@@ -26,13 +26,13 @@ gameStateRef.current=0
     }, [])
 
   return (
-    <canvas
-      ref={canvasRef}
-      style={{
-     width:800,
-     height:400
-      }}
-    />
+    <canvas ref={canvasRef}    style={{
+      width: "100%",
+      maxWidth: "800px",
+      height: "auto",
+      aspectRatio: "2 / 1",
+      display: "block"
+       }}/>
   );
 
 }

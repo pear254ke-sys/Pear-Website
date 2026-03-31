@@ -15,7 +15,10 @@
   font-family: 'Inter', sans-serif;
 }
 
-
+.review-head{
+  font-size: small;
+  margin:0.5rem;
+}
 
 .image-container {
   width: 80px;

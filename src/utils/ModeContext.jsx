@@ -16,6 +16,7 @@ export function ModeProvider({ children }) {
 
   }, [mode]);
   const data = modeData[mode]
+  
 
   return (
     <ModeContext.Provider value={{ mode, toggleMode, data }}>

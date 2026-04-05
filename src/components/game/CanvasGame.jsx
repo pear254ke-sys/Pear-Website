@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef,useContext } from "react";
+import { ModeContext } from "../../utils/ModeContext";
 import canvasGame from "./game";
 
 export default function GameCanvas(props) {
- 
+  const {data} = useContext(ModeContext)
     const canvasRef = useRef(null);
     const gameStateRef = useRef(props.gameState);
 
@@ -20,10 +21,9 @@ gameStateRef.current=0
       const canvas = canvasRef.current;
       if (!canvas) return;
   
-      const stopGame = canvasGame(canvas, gameStateRef);
-  
-      return () => stopGame?.();
-    }, [])
+      const stopGame = canvasGame(canvas, gameStateRef,data.gameConfig);
+        return () => stopGame?.();
+    }, [data])
 
   return (
     <canvas ref={canvasRef}    style={{

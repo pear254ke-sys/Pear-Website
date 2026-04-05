@@ -1,8 +1,7 @@
 import startGame from "./main"
-function canvasGame(canvas, gameStateRef) {
-  startGame(canvas, gameStateRef);
-
-  return () => {};
+function canvasGame(canvas, gameStateRef,gameConfig) {
+  const stop = startGame(canvas, gameStateRef, gameConfig);
+  return stop;
 }
 export default canvasGame
   

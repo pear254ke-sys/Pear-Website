@@ -1,8 +1,10 @@
-import { gameImages } from "../../utils/data";
-function startGame(canvas,gameStateRef){;
+
+function startGame(canvas,gameStateRef,config){;
   window.addEventListener("resize", setGameWindow);
   const ctx = canvas.getContext("2d");
-  const images=loadImages()
+  const configImages=config.images
+  const configAudio=config.audio
+  let images=loadImages(configImages)
   const GAME_STATES = {
     STATE_PLAYING: 0,
     STATE_PAUSED: 1,
@@ -56,10 +58,10 @@ function startGame(canvas,gameStateRef){;
       consumed: new Uint8Array(ENTITY_SIZE)
     };
   }
-  function loadImages(){
+  function loadImages(configImages){
 const images={}
-for(let key in gameImages){
-images[key]=loadImage(gameImages[key])
+for(let key in configImages){
+images[key]=loadImage(configImages[key])
 }
 return images
   }
@@ -73,19 +75,20 @@ return images
   const position = gameData.position;
   const size = gameData.size;
   const consumed = gameData.consumed;
-  
-  // const audio = {
-  //   eat: document.getElementById("eat"),
-  //   bomb_audio: document.getElementById("bomb_audio")
-  // };
-  
-  
-  function playSound(sound) {
+  function loadAudio(configAudio){
+
+  }  
+  function playAudio(sound) {
     if (!sound) return;
     sound.currentTime = 0;
     sound.play();
   }
   
+  function stopAudio(sound){
+    if (!sound) return;
+    sound.pause();
+    sound.currentTime=0;
+  }
   function setGameWindow() {
     const rect = canvas.getBoundingClientRect();
     const dpr = window.devicePixelRatio || 1;
@@ -96,9 +99,9 @@ return images
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   function resetGame() {
-    gameStateRef.current = GAME_STATES.STATE_PAUSED;
     TIMER.enemyTimer = 0;
     TIMER.pearTimer = 0;
+    images=loadImages(configImages)
     createPlayer();
     createPears();
     createEnemies();
@@ -185,10 +188,10 @@ return images
   }
   canvas.addEventListener("pointerenter",()=>{
     gameStateRef.current=GAME_STATES.STATE_PLAYING
-  })
+  },{touchAction:"none"})
   canvas.addEventListener("pointerleave",()=>{
     gameStateRef.current=GAME_STATES.STATE_PAUSED
-  })
+  },{touchAction:"none"})
   canvas.addEventListener("pointermove", e => {
     if (parseInt(gameStateRef.current) === GAME_STATES.STATE_PLAYING) {
       setPlayerPos(e.clientX, e.clientY);
@@ -198,6 +201,7 @@ return images
     gameStateRef.current = GAME_STATES.STATE_PLAYING;
   },{touchAction:"none"});
   function update(dt) {
+    if (gameStateRef.current !== GAME_STATES.STATE_PLAYING) return;
     TIMER.pearTimer += dt;
     TIMER.enemyTimer += dt;
   
@@ -217,14 +221,14 @@ return images
   
     if (hitPear !== -1) {
       consumed[hitPear] = 1;
-      // playSound(audio.eat);
+      playAudio(configAudio.eat);
       reduceSize(hitPear, PEAR.PEAR_GROW_RATE);
       increaseSize(PLAYER.PLAYER_ID, PLAYER.PLAYER_GROW_RATE);
     }
   
     if (hitEnemy !== -1) {
       consumed[hitEnemy] = 1;
-      // playSound(audio.bomb_audio);
+      playAudio(configAudio.explosion);
       reduceSize(hitEnemy,ENEMY.ENEMY_GROW_RATE)
       reduceSize(PLAYER.PLAYER_ID, PLAYER.PLAYER_ENEMY_SHRINK_RATE);
     }
@@ -244,46 +248,65 @@ return images
   
   function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawEntity(images.gameBg, 0, 0, canvas.width, canvas.height, 0);
-    drawEntity(images.playerImg, position[PLAYER.PLAYER_ID], position[PLAYER.PLAYER_ID+1], size[PLAYER.PLAYER_ID], size[PLAYER.PLAYER_ID+1], 0);
+    drawEntity(images.background, 0, 0, canvas.width, canvas.height, 0);
+    drawEntity(images.player, position[PLAYER.PLAYER_ID], position[PLAYER.PLAYER_ID+1], size[PLAYER.PLAYER_ID], size[PLAYER.PLAYER_ID+1], 0);
   
     for (let i = PEAR.PEAR_START; i < PEAR.PEAR_START + PEAR.PEAR_COUNT*2; i += 2) {
       if (!consumed[i] && size[i] > 0)
-        drawEntity(images.pearImg, position[i], position[i+1], size[i], size[i+1], 0);
+        drawEntity(images.fodder, position[i], position[i+1], size[i], size[i+1], 0);
     }
   
     for (let i = ENEMY.ENEMY_START; i < ENEMY.ENEMY_START + ENEMY.ENEMY_COUNT*2; i += 2) {
       if (!consumed[i] && size[i] > 0)
-        drawEntity(images.bombImg, position[i], position[i+1], size[i], size[i+1], 0);
+        drawEntity(images.enemy, position[i], position[i+1], size[i], size[i+1], 0);
     }
   }
+  window.addEventListener('click', () => {
+    configAudio.bg_track.play()
+}, { once: true });
+  function renderGameState() {
+    const state = gameStateRef.current;
   
-  function gameStatesEffects() {
-    
- if (parseInt(gameStateRef.current) === GAME_STATES.STATE_PLAYING) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+    if (state === GAME_STATES.STATE_PLAYING) {
+      configAudio.bg_track.play()
+      configAudio.bg_track.loop=true
+      configAudio.volume = 0.5;
       render();
-      update(TIMER.FIXED_STEP);
-    } else if (parseInt(gameStateRef.current) === GAME_STATES.STATE_GAMEOVER) {
+    } 
+    else if (state === GAME_STATES.STATE_GAMEOVER) {
+   
       drawEntity(images.gameOver, 0, 0, canvas.width, canvas.height, 0);
-    } else if (parseInt(gameStateRef.current) === GAME_STATES.STATE_WON) {
+    resetGame()
+    configAudio.bg_track.pause()
+    } 
+    else if (state === GAME_STATES.STATE_WON) {
+   
       drawEntity(images.gameWon, 0, 0, canvas.width, canvas.height, 0);
-    }
-    else if(parseInt(gameStateRef.current) === GAME_STATES.STATE_PAUSED){
+      configAudio.bg_track.pause()
+    } 
+    else if (state === GAME_STATES.STATE_PAUSED) {
+      configAudio.bg_track.pause()
       drawEntity(images.gamePaused, 0, 0, canvas.width, canvas.height, 0);
-    
     }
   }
-  
+  let animationId=undefined;
   function animate(ts) {
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
+  
     if (!TIMER.lastTime) TIMER.lastTime = ts;
-    let dt = (ts - TIMER.lastTime)/1000;
+  
+    let dt = (ts - TIMER.lastTime) / 1000;
     TIMER.lastTime = ts;
     TIMER.accumulator += dt;
+  
     while (TIMER.accumulator >= TIMER.FIXED_STEP) {
       TIMER.accumulator -= TIMER.FIXED_STEP;
-      gameStatesEffects();
+      update(TIMER.FIXED_STEP);
     }
+  
+    renderGameState();
   }
   
  
@@ -291,6 +314,9 @@ return images
   requestAnimationFrame(animate);
   
   
- 
+  return () => {
+    cancelAnimationFrame(animationId);
+    window.removeEventListener("resize", setGameWindow);
+  };
 }
 export default startGame

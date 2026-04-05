@@ -34,14 +34,28 @@ import factory_image from "../assets/factory_image.webp"
 import built_image from "../assets/built.webp"
 import idea_image from "../assets/ideas.webp"
 import startup_image from "../assets/startup_image.webp"
-const gameImages={gameBg,gameOver,gamePaused,gameWon,pearImg,playerImg,bombImg}
+import gear_player from "../assets/gear_player.webp"
+import broken_cog from "../assets/broken_cog.webp"
+import gear_bg from "../assets/gear_bg.webp"
+import gearPaused from "../assets/gear_paused.webp"
+import { pear_tracks } from "./preload"
+const pearGameImages={"background":gameBg,"gameOver":gameOver,"gamePaused":gamePaused,"gameWon":gameWon,"fodder":pearImg,"player":playerImg,"enemy":bombImg}
+const gearGameImages={"background":gear_bg,"enemy":broken_cog,"fodder":gear_player,"player":gear_player,"gameOver":gameOver,"gamePaused":gearPaused
+ ,"gameWon":gameWon
+}
+const pear_audio=pear_tracks
+const gear_audio=pear_tracks
 const pearMode={sectionData:[{
     id:1,image:dark_logo,heading:"Pear",body:"Pear is a peer-powered startup built in Ruaka, Kiambu Kenya. We create simple, open technologies that help people connect, share, and build together.Pear explores peer-to-peer systems that remove unnecessary middlemen and return control to users. Our focus is on direct connection, shared ownership, and practical innovation.our origin story starts in Ruaka founded by young builders inspired by local challenges. Our work starts locally, shaped by real experiences and real needs.Pear is built on the idea that people are stronger when they connect directly. We believe technology should serve communities, not control them."
     ,direction:"right"},{id:2,heading:"What We Build",direction:"left",body:"We build peer-powered platforms and practical tools for real-world conditions, focused on connectivity and collaboration. Using peer-to-peer systems, we enable direct, reliable, and independent communication without centralized control.Our ideas come from real experiences—we listen first, then build. Pear empowers young people to learn by doing and turn curiosity into solutions.",
 image:peers_conn},{id:3,heading:"Powered by Peers",direction:"right",body:"Young developers, designers, and thinkers are central to Pear’s development process. We encourage hands-on experimentation and real-world problem solving.built on the idea that people are stronger when they connect directly and technology should serve communities, not control them.Pear exists because of the youth and community that inspired it.",image:peers,id:3},{
     id:4,heading:"Be Part of the Journey",direction:"left",body:"Pear grows through collaboration ,We are not a finished product,it is a growing community. If you have ideas, energy, or curiosity, you belong here in Pear.We welcome contributors, testers, and partners who believe in open systems and shared progress.",image:community
-    }],banner:pear_banner,background:pear_background}
-const gearMode={sectionData:[
+    }],banner:pear_banner,background:pear_background,gameConfig:{
+      images:pearGameImages,audio:pear_audio
+    }}
+const gearMode={
+
+  sectionData:[
     {
       id: 1,
       image: dark_logo,
@@ -76,7 +90,10 @@ const gearMode={sectionData:[
       direction: "left",
       body: "Some Pear projects remain small tools. Others grow into full products or independent startups.\n\nGear exists to give ideas a path to become something bigger — through iteration, usage, and continuous improvement.\n\nWe don’t wait for permission to build. We start, learn, and evolve.",
       image: startup_image
-    }],banner:gear_banner,background:gear_background}
+    }],banner:gear_banner,background:gear_background,gameConfig:{
+      images:gearGameImages,
+      audio:pear_audio
+    }}
 const modeData={"pear":pearMode,"gear":gearMode}
 const accordianData=[
     {id: 1, heading:  "Pear Ideas",text:"We source our ideas locally inspired by local  challenges affecting us" },
@@ -207,6 +224,5 @@ const foundersData = [
 ];
 const appData=[{id:1,heading:"Camshare",image:"🌐",status:"complete"}]
 const icons={facebook,instagram,github,twitter}
-console.log(icons)
 
-export {accordianData,reviewData,serviceData,appData,modeData,icons,gameImages,foundersData}
+export {accordianData,reviewData,serviceData,appData,modeData,icons,foundersData}

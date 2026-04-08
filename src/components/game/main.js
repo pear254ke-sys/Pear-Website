@@ -1,6 +1,6 @@
 
-function startGame(canvas,gameStateRef,config){;
-  window.addEventListener("resize", setGameWindow);
+function startGame(canvas,gameStateRef,config,dim){
+  setGameWindow(canvas,dim.width,dim.height)
   const ctx = canvas.getContext("2d");
   const configImages=config.images
   const configAudio=config.audio
@@ -70,14 +70,11 @@ return images
     img.src = src;
     return img;
   }
-  setGameWindow()
+ 
   const gameData = GameEntityVectors();
   const position = gameData.position;
   const size = gameData.size;
-  const consumed = gameData.consumed;
-  function loadAudio(configAudio){
-
-  }  
+  const consumed = gameData.consumed;  
   function playAudio(sound) {
     if (!sound) return;
     sound.currentTime = 0;
@@ -89,14 +86,9 @@ return images
     sound.pause();
     sound.currentTime=0;
   }
-  function setGameWindow() {
-    const rect = canvas.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-  
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-  
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  function setGameWindow(canvas,width,height) {
+   canvas.width=width
+   canvas.height=height
   }
   function resetGame() {
     TIMER.enemyTimer = 0;
@@ -181,11 +173,11 @@ return images
   
   function setPlayerPos(clientX, clientY) {
     const rect = canvas.getBoundingClientRect();
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
-    position[PLAYER.PLAYER_ID] = (clientX - rect.left) * scaleX;
-    position[PLAYER.PLAYER_ID+1] = (clientY - rect.top) * scaleY;
+    position[PLAYER.PLAYER_ID] = (clientX - rect.left) * (canvas.width / rect.width) / (window.devicePixelRatio || 1);
+    position[PLAYER.PLAYER_ID+1] = (clientY - rect.top) * (canvas.height / rect.height) / (window.devicePixelRatio || 1);
   }
+
+  
   canvas.addEventListener("pointerenter",()=>{
     gameStateRef.current=GAME_STATES.STATE_PLAYING
   },{touchAction:"none"})
@@ -316,7 +308,7 @@ return images
   
   return () => {
     cancelAnimationFrame(animationId);
-    window.removeEventListener("resize", setGameWindow);
+   ;
   };
 }
 export default startGame

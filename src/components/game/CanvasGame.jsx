@@ -1,38 +1,44 @@
-import { useEffect, useRef,useContext } from "react";
+import {useState,useEffect,useRef,useContext} from 'react'
 import { ModeContext } from "../../utils/ModeContext";
 import canvasGame from "./game";
-
 export default function GameCanvas(props) {
-  const {data} = useContext(ModeContext)
-    const canvasRef = useRef(null);
-    const gameStateRef = useRef(props.gameState);
+  const { data } = useContext(ModeContext);
+  const canvasRef = useRef(null);
+  const gameStateRef = useRef(props.gameState);
+  
+  const [screenSize, setScreenSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
 
-    useEffect(() => {
-      if(props.gameState===true)
-      {
-        gameStateRef.current=1
-      }
-      else if(props.gameState===false){
-gameStateRef.current=0
-      }
-    }, [props.gameState]);
-  
-    useEffect(() => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-  
-      const stopGame = canvasGame(canvas, gameStateRef,data.gameConfig);
-        return () => stopGame?.();
-    }, [data])
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    
+    const gameWidth = Math.min(screenSize.width, 1200);
+    const gameHeight = gameWidth / 2; 
+const dim={width:gameWidth,height:gameHeight}
+    const stopGame = canvasGame(canvas, gameStateRef, data.gameConfig,dim);
+    
+    return () => stopGame?.();
+  }, [data, screenSize]); // Game re-initializes when screen size changes
 
   return (
-    <canvas ref={canvasRef}    style={{
-      width: "100%",
-      maxWidth: "800px",
-      height: "auto",
-      aspectRatio: "2 / 1",
-      display: "block"
-       }}/>
+    <div className="game-wrapper" style={{ width: '100%', textAlign: 'center' }}>
+      <canvas ref={canvasRef} style={{ touchAction: 'none' }} />
+    </div>
   );
-
 }

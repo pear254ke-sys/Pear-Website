@@ -1,17 +1,22 @@
 .footer-container {
   background-color: var(--bg-dark);
   color: var(--text-light);
-  padding: 4rem 2rem 2rem;
   font-family: var(--font-family);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
+ 
+  
 }
 
 .footer-content {
-  display:flex;
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 2rem; 
+  display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
+  background-color: transparent
+ 
 }
 
 .footer-brand {
@@ -90,13 +95,11 @@ margin-bottom: 1.5em;
 
 
 @media (min-width: 768px) {
+
   .footer-content {
-    margin-left:4em;
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    align-items: flex-start; /* Better alignment for text blocks */
     text-align: left;
   }
   .social-icons {

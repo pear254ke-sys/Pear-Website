@@ -3,7 +3,7 @@ import { ModeContext } from "../../utils/ModeContext";
 import { useContext } from "react"
 import "./banner.css"
 import { NavLink } from 'react-router';
-function Banner(){
+function Banner(props){
     const {data} = useContext(ModeContext)
     return(
         <section className="banner-container">

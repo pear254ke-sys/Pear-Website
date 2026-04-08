@@ -4,7 +4,7 @@ import Homepage from "./pages/homepage/Homepage";
 import Servicepage from "./pages/servicespage/Servicepage";
 import Contactpage from "./pages/contactpage/Contactpage";
 import AppsPage from "./pages/appspage/Appspage";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { ModeProvider } from "./utils/ModeContext";
 
 
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [loading,setIsLoading]=useState(true)
+  const handleLoad = () => {
+    setIsLoading(false);
+  };
   useEffect(() => {
     const slowScroll = (e) => {
       e.preventDefault();
@@ -48,11 +52,19 @@ function App() {
 
     return () => window.removeEventListener("wheel", slowScroll);
   }, []);
-
+  useEffect(() => {
+    if (document.readyState === 'complete') {
+      handleLoad();
+    } else {
+      window.addEventListener('load', handleLoad);
+      return () => window.removeEventListener('load', handleLoad);
+    }
+  }, []);
+  
   return (
-    <div className="body">  <ModeProvider>
-      <div className="main"><RouterProvider router={router} /></div>
-  </ModeProvider></div>
+    <ModeProvider load={loading}>
+      <RouterProvider router={router} />
+  </ModeProvider>
     
   
   );

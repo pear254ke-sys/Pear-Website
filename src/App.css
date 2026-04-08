@@ -23,21 +23,6 @@
    --hero-bg:linear-gradient(135deg, rgb(112, 96, 3) 0%, rgb(216, 186, 13) 50%, rgb(228, 195, 13) 100%);
   }
 
-.body {
-  width: 100%;
-  min-height: 100vh;
-margin:0 auto;
-
-  display: flex;
-  justify-content: center; 
-}
-
-.main {
-  width: 100%;
-  max-width: 768px; 
-  margin: 0 auto;
- ;
-}
 *,
 *::before,
 *::after,

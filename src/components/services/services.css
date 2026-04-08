@@ -4,10 +4,10 @@
     background-color:var(--bg-light);
     color: var(--pear-green);
     font-family: var(--font-family);
+    max-width:1200px;
   }
   
   .services-container {
-    max-width: 1100px;
     margin: 0 auto;
   }
   

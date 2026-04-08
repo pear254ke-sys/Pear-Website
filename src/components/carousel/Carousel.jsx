@@ -18,7 +18,7 @@ function Reviews_Carousel(){
 return <Item name={review.name} heading={review.heading} text={review.text} image={review.image}/>
   })
     const width = useWindowSize();
-    const percentage = width < 768 ? 80 : width < 1024 ? 45 : 25;
+    const percentage = width < 768 ? 100 : width < 1024 ? 45 : 30;
     return (<Carousel dynamicHeight={false} autoPlay={true} infiniteLoop={true} interval={3000} emulateTouch={true} showStatus={false} stopOnHover={false} centerMode={true}
         centerSlidePercentage={percentage} showIndicators={false} showThumbs={false}
     >

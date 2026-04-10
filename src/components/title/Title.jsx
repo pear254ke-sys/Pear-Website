@@ -1,12 +1,13 @@
 import "./title.css";
-import vertical_vine from "../../assets/vertical_vine.png"
+import { ModeContext } from "../../utils/ModeContext";
+import { useContext } from "react"
 function Title(props) {
-  
+  const {data} = useContext(ModeContext)
 
   return (
     <article  className="title">
       <h1 className="title-heading">{props.title}</h1>
-      <img src={vertical_vine} className="title-img"/>
+      <img src={data.vine} className="title-img"/>
     </article>
   );
 }

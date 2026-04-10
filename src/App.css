@@ -1,5 +1,5 @@
 :root {
-    --pear-green:#ADBD6A;
+    --pear-green:#8FAF3E;
     --text-dark: #1a1a1a;
     --text-medium: #4b5563;
     --text-light:#ffffff;
@@ -9,18 +9,23 @@
     --font-family:'Inter', sans-serif;
     --heading-font-family:'Space Grotesk', sans-serif;
     --bg-light-smoke:#f3f4f6;
-    --title-font-size:clamp(2rem, 0.5rem, 4rem);
+    --title-font-size:clamp(2rem, 2.5vw, 3rem);;
     --title-font-weight:700;
-    --text-font-size:clamp(1rem, 2vw + 0.5rem, 1.1rem);
+    --text-font-size:clamp(1rem, 1.2vw, 1.1rem);
     --line-height:1.75;
-    --hover-color:#99A956;
+    --hover-color:#7E9E34;
     --btn-text:#f9fafb;
     --hero-bg:linear-gradient(135deg, #1e2901 0%, #4d5d1c 50%, #808c4e 100%);
   }
   [data-theme='gear'] {
-   --pear-green:#c9a227;
-   --hover-color:rgb(228, 195, 13);
-   --hero-bg:linear-gradient(135deg, rgb(112, 96, 3) 0%, rgb(216, 186, 13) 50%, rgb(228, 195, 13) 100%);
+   --pear-green:#d4af37;
+   --hover-color:#b8962e;;
+   --hero-bg: linear-gradient(
+    135deg,
+    #1a1f05 0%,
+    #b8962e 50%,
+    #d4af37 100%
+  );
   }
 
 *,
@@ -29,9 +34,13 @@
 button,
 img,
 a {
+  margin:0;
+  padding:0;
   box-sizing: border-box;
+
+
+}body, button, a {
   transition: 
-    background-color 1s ease,
-    color 1s ease,
-    border-color 1s ease;
+    background-color 0.3s ease,
+    color 0.3s ease;
 }

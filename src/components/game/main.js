@@ -2,8 +2,24 @@
 function startGame(canvas,gameStateRef,config,dim){
   setGameWindow(canvas,dim.width,dim.height)
   const ctx = canvas.getContext("2d");
+  const gameScaleX=dim.width/800
   const configImages=config.images
   const configAudio=config.audio
+  const currentLevel=getCurrentLevel()
+  const gameLevelChange={
+    winSizeCodition:100,
+    loseSizeCondition:20,
+    noOfEnemiesOnScreen:10,
+    noOfPearsOnScreen:10,
+    enemyShrinkRate:generateRandomShrinkRates(0.1,0.10),
+    pearShrinkRate:generateRandomShrinkRates(0.1,0.10),
+    enemyRate:5,
+    pearRate:2,
+    playerShrinkRate:0.1,
+    playerPearGrowRate:0.5,
+    playerEnemyShrinkRate:1,
+  }
+  setGameSettings(currentLevel,gameLevelChange)
   let images=loadImages(configImages)
   const GAME_STATES = {
     STATE_PLAYING: 0,
@@ -11,33 +27,32 @@ function startGame(canvas,gameStateRef,config,dim){
     STATE_WON: 2,
     STATE_GAMEOVER: 3
   };
-  const pearShrinkRate=generateRandomShrinkRates(0.1,0.10)
+
   const PEAR = {
     PEAR_START: 2,
-    PEAR_COUNT: 10,
-    PEAR_RATE: 2,
-    PEAR_SIZE: 50,
-    PEAR_SHRINK_RATE:pearShrinkRate,
-    PEAR_GROW_RATE:5
+    PEAR_COUNT: gameLevelChange.noOfPearsOnScreen,
+    PEAR_RATE: gameLevelChange.pearRate,
+    PEAR_SIZE: 60 * gameScaleX,
+    PEAR_SHRINK_RATE:gameLevelChange.pearShrinkRate,
+    PEAR_GROW_RATE:100
    
   };
-  const enemyShrinkRate=generateRandomShrinkRates(0.1,0.5)
   const ENEMY = {
-    ENEMY_COUNT: 10,
-    ENEMY_SIZE: 50,
-    ENEMY_RATE: 5,
+    ENEMY_COUNT: gameLevelChange.noOfEnemiesOnScreen,
+    ENEMY_SIZE: 30 * gameScaleX,
+    ENEMY_RATE: gameLevelChange.enemyRate,
     ENEMY_START: PEAR.PEAR_START + PEAR.PEAR_COUNT * 2,
-    ENEMY_SHRINK_RATE:enemyShrinkRate,
-    ENEMY_GROW_RATE:10
+    ENEMY_SHRINK_RATE:gameLevelChange.enemyShrinkRate,
+    ENEMY_GROW_RATE:100
   
   };
   
   const PLAYER = {
     PLAYER_ID: 0,
-    PLAYER_SIZE: 70,
-    PLAYER_SHRINK_RATE:0.1,
-    PLAYER_ENEMY_SHRINK_RATE:5,
-    PLAYER_GROW_RATE:1,
+    PLAYER_SIZE: 60 * gameScaleX,
+    PLAYER_SHRINK_RATE:gameLevelChange.playerShrinkRate,
+    PLAYER_ENEMY_SHRINK_RATE:gameLevelChange.playerEnemyShrinkRate,
+    PLAYER_GROW_RATE:gameLevelChange.playerPearGrowRate,
   };
   
   const TIMER = {
@@ -47,6 +62,19 @@ function startGame(canvas,gameStateRef,config,dim){
     accumulator: 0,
     FIXED_STEP: 1/60
   };
+  function getCurrentLevel(){
+    const key="current-level"
+    let level=localStorage.getItem(key);
+    if(level===null){
+      level=1
+    }
+    return level
+  }
+  function setCurrentLevel(){
+    const key="current-level"
+    currentLevel++
+    localStorage.setItem(key,currentLevel)
+  }
   function generateRandomShrinkRates(min, max) {
     return Math.random() * (max - min) + min;
   }
@@ -97,6 +125,7 @@ return images
     createPlayer();
     createPears();
     createEnemies();
+    setGameSettings(currentLevel,gameLevelChange)
   }
   
   function createPlayer() {
@@ -114,6 +143,28 @@ return images
       consumed[i] = 0;
     }
   }
+ 
+    function setGameSettings(currentLevel, gameLevelChange) {
+      const level = parseInt(currentLevel) || 1;
+      gameLevelChange.noOfEnemiesOnScreen = Math.min(10 + level * 2, 40);
+      gameLevelChange.noOfPearsOnScreen = Math.max(10 - level, 3);
+      gameLevelChange.enemyRate = Math.max(5 - level * 0.3, 1.5);
+      gameLevelChange.pearRate = Math.max(2 - level * 0.1, 0.8);
+      gameLevelChange.enemyShrinkRate = generateRandomShrinkRates(
+        0.1 + level * 0.05,
+        0.2 + level * 0.05
+      );
+    
+      gameLevelChange.pearShrinkRate = generateRandomShrinkRates(
+        0.05 + level * 0.02,
+        0.1 + level * 0.03
+      );
+      gameLevelChange.playerShrinkRate = 0.01 + level * 0.02;
+      gameLevelChange.playerEnemyShrinkRate = 1 + level * 0.3;
+      gameLevelChange.playerPearGrowRate = Math.max(0.5 - level * 0.03, 0.2);
+      gameLevelChange.winSizeCodition = 100 + level * 10;
+      gameLevelChange.loseSizeCondition = Math.max(20 - level * 2, 5);
+    }
   
   function createEnemies() {
     for (let i = ENEMY.ENEMY_START; i < ENEMY.ENEMY_START + ENEMY.ENEMY_COUNT*2; i += 2) {
@@ -277,6 +328,8 @@ return images
    
       drawEntity(images.gameWon, 0, 0, canvas.width, canvas.height, 0);
       configAudio.bg_track.pause()
+      setCurrentLevel()
+      resetGame()
     } 
     else if (state === GAME_STATES.STATE_PAUSED) {
       configAudio.bg_track.pause()

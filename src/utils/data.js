@@ -6,6 +6,8 @@ import pear_banner from "../assets/pear_banner.webp"
 import pear_background from "../assets/pear_background.webp"
 import gear_banner from "../assets/gear_banner.webp"
 import gear_background from "../assets/gear_background.webp"
+import gear_vertical_vine from "../assets/gear_vertical_vine.png"
+import pear_vertical_vine from "../assets/pear_vertical_vine.png"
 import facebook from "../assets/facebook.webp";
 import instagram from "../assets/instagram.webp";
 import github from "../assets/github.webp";
@@ -52,9 +54,9 @@ image:peers_conn},{id:3,heading:"Powered by Peers",direction:"right",body:"Young
     id:4,heading:"Be Part of the Journey",direction:"left",body:"Pear grows through collaboration ,We are not a finished product,it is a growing community. If you have ideas, energy, or curiosity, you belong here in Pear.We welcome contributors, testers, and partners who believe in open systems and shared progress.",image:community
     }],banner:pear_banner,background:pear_background,gameConfig:{
       images:pearGameImages,audio:pear_audio
-    }}
+    },vine:pear_vertical_vine}
 const gearMode={
-
+vine:gear_vertical_vine,
   sectionData:[
     {
       id: 1,

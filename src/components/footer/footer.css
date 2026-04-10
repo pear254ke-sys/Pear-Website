@@ -8,8 +8,7 @@
 }
 
 .footer-content {
-  max-width: 1200px;
-  margin: 0 auto; 
+  max-width: 1200px; 
   padding: 2rem; 
   display: flex;
   flex-direction: column;
@@ -20,8 +19,8 @@
 }
 
 .footer-brand {
-  flex: 1;
-  min-width: 250px;
+
+
 }
 
 .brand-logo {
@@ -96,12 +95,20 @@ margin-bottom: 1.5em;
 
 @media (min-width: 768px) {
 
+  .footer-container {
+display:flex;
+justify-content: center;
+flex-direction: column;
+   
+    
+  }
   .footer-content {
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start; /* Better alignment for text blocks */
-    text-align: left;
+    align-items: center;
+    padding:0 4em;
+    margin-left:4em;
   }
+
   .social-icons {
     justify-content: flex-start;
   }

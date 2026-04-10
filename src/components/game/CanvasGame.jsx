@@ -28,14 +28,13 @@ export default function GameCanvas(props) {
     if (!canvas) return;
 
     
-    const gameWidth = Math.min(screenSize.width, 1200);
-    const gameHeight = gameWidth / 2; 
+    const gameWidth = Math.min(screenSize.width, 800);
+    const gameHeight = Math.min(screenSize.width/2,400); 
 const dim={width:gameWidth,height:gameHeight}
     const stopGame = canvasGame(canvas, gameStateRef, data.gameConfig,dim);
     
     return () => stopGame?.();
-  }, [data, screenSize]); // Game re-initializes when screen size changes
-
+  }, [data, screenSize]); 
   return (
     <div className="game-wrapper" style={{ width: '100%', textAlign: 'center' }}>
       <canvas ref={canvasRef} style={{ touchAction: 'none' }} />

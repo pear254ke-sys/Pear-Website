@@ -9,7 +9,7 @@
     --font-family:'Inter', sans-serif;
     --heading-font-family:'Space Grotesk', sans-serif;
     --bg-light-smoke:#f3f4f6;
-    --title-font-size:clamp(2rem, 2.5vw, 3rem);;
+    --title-font-size:clamp(2rem, 1.5vw, 2.5rem);;
     --title-font-weight:700;
     --text-font-size:clamp(1rem, 1.2vw, 1.1rem);
     --line-height:1.75;
@@ -19,7 +19,7 @@
   }
   [data-theme='gear'] {
    --pear-green:#d4af37;
-   --hover-color:#b8962e;;
+   --hover-color:#b8962e;
    --hero-bg: linear-gradient(
     135deg,
     #1a1f05 0%,
@@ -39,7 +39,11 @@ a {
   box-sizing: border-box;
 
 
-}body, button, a {
+}
+canvas{
+  user-select: none;
+}
+.transition {
   transition: 
     background-color 0.3s ease,
     color 0.3s ease;

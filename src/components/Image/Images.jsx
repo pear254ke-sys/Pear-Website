@@ -8,7 +8,7 @@ function Images() {
       <div className="hero-content">
         <h1 className="hero-title">
           <span className="line-one">Building Locally Made Solutions</span>
-          <span className="line-two">For Africa By Africans</span>
+          <span className="line-two"></span>
         </h1>
         <div className="hero-divider"></div>
         <p className="hero-tagline">Empowering the continent through innovation.</p>

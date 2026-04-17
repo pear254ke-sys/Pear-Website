@@ -31,8 +31,7 @@ function PearApp(props){
   }
   function Demo(){
     const [state, setState] = useState(true);
-
-    const handleClick = () => setState(prev => !prev);;
+   const handleClick = () => setState(prev => !prev);;
       return(<div>   <section class="projects-section">
 
         <Title title="Explore What We Built" />
@@ -47,6 +46,7 @@ function PearApp(props){
               <h2 class="card-title">Interactive Demo</h2>
               <p class="card-description">
                 A small experiment showing how direct connections grow.
+                We connect, we build, and together we grow.
               </p>
               <button class="try-demo-button" onClick={handleClick}>   {state ? "play" : "pause"}</button>
             </div>

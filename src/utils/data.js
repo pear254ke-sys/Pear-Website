@@ -40,19 +40,20 @@ import gear_player from "../assets/gear_player.webp"
 import broken_cog from "../assets/broken_cog.webp"
 import gear_bg from "../assets/gear_bg.webp"
 import gearPaused from "../assets/gear_paused.webp"
+import explosion_sprite from "../assets/explosion_sprite.png"
 import { pear_tracks } from "./preload"
-const pearGameImages={"background":gameBg,"gameOver":gameOver,"gamePaused":gamePaused,"gameWon":gameWon,"fodder":pearImg,"player":playerImg,"enemy":bombImg}
-const gearGameImages={"background":gear_bg,"enemy":broken_cog,"fodder":gear_player,"player":gear_player,"gameOver":gameOver,"gamePaused":gearPaused
+const pearGameImages={"background":gameBg,"gameOver":gameOver,"gamePaused":gamePaused,"gameWon":gameWon,"fodder":pearImg,"player":playerImg,"enemy":bombImg,"explosion":explosion_sprite}
+const gearGameImages={"background":gear_bg,"enemy":broken_cog,"fodder":gear_player,"player":gear_player,"gameOver":gameOver,"gamePaused":gearPaused,"explosion":explosion_sprite
  ,"gameWon":gameWon
 }
 const pear_audio=pear_tracks
 const gear_audio=pear_tracks
 const pearMode={sectionData:[{
-    id:1,image:dark_logo,heading:"Pear",body:"Pear is a peer-powered startup built in Ruaka, Kiambu Kenya. We create simple, open technologies that help people connect, share, and build together.Pear explores peer-to-peer systems that remove unnecessary middlemen and return control to users. Our focus is on direct connection, shared ownership, and practical innovation.our origin story starts in Ruaka founded by young builders inspired by local challenges. Our work starts locally, shaped by real experiences and real needs.Pear is built on the idea that people are stronger when they connect directly. We believe technology should serve communities, not control them."
-    ,direction:"right"},{id:2,heading:"What We Build",direction:"left",body:"We build peer-powered platforms and practical tools for real-world conditions, focused on connectivity and collaboration. Using peer-to-peer systems, we enable direct, reliable, and independent communication without centralized control.Our ideas come from real experiences—we listen first, then build. Pear empowers young people to learn by doing and turn curiosity into solutions.",
-image:peers_conn},{id:3,heading:"Powered by Peers",direction:"right",body:"Young developers, designers, and thinkers are central to Pear’s development process. We encourage hands-on experimentation and real-world problem solving.built on the idea that people are stronger when they connect directly and technology should serve communities, not control them.Pear exists because of the youth and community that inspired it.",image:peers,id:3},{
-    id:4,heading:"Be Part of the Journey",direction:"left",body:"Pear grows through collaboration ,We are not a finished product,it is a growing community. If you have ideas, energy, or curiosity, you belong here in Pear.We welcome contributors, testers, and partners who believe in open systems and shared progress.",image:community
-    }],banner:pear_banner,background:pear_background,gameConfig:{
+    id:1,image:dark_logo,heading:"Pear",body:"Pear is a peer-powered startup built in Ruaka, Kiambu, Kenya.e build simple, open technologies that help people connect, share, and build together.Our focus is peer-to-peer systems that remove unnecessary middlemen and return control to users.We believe technology should serve communities — not control them."
+    ,direction:"right",alt:"image of pear logo"},{id:2,heading:"What We Build",direction:"left",body:"We build peer-powered platforms and practical tools for real-world conditions.Using peer-to-peer systems, we enable direct, reliable communication without centralized control.Our ideas come from real experiences — we listen first, then build.Pear empowers young people to learn by doing and turn curiosity into real solutions.",
+image:peers_conn,alt:"image of connected nodes/computers"},{id:3,heading:"Powered by Peers",direction:"right",body:"Young developers, designers, and thinkers are central to Pear’s development process.We encourage hands-on experimentation and real-world problem solving.We believe people are stronger when they connect directly, and that technology should serve communities — not control them.Pear exists because of the youth and communities that inspired it.",image:peers,alt:"image of connected people"},{
+    id:4,heading:"Be Part of the Journey",direction:"left",body:"Pear grows through collaboration.We’re not a finished product — we’re a growing community.If you have ideas, energy, or curiosity, you belong here.We welcome contributors, testers, and partners who believe in open systems and shared progress.",image:community
+,alt:"image of pear community"    }],banner:pear_banner,background:pear_background,gameConfig:{
       images:pearGameImages,audio:pear_audio
     },vine:pear_vertical_vine}
 const gearMode={
@@ -62,36 +63,41 @@ vine:gear_vertical_vine,
       id: 1,
       image: dark_logo,
       heading: "Gear",
-      body: "Gear powers Pear. It’s our internal system for turning ideas into real products through rapid execution.Inspired by startup studios like Idealab, we build ideas from the ground up—starting small, solving real problems, and growing through use. We focus on practical, lightweight solutions that work in real-world conditions, especially where resources are limited.Gear emphasizes experimentation, fast iteration, and learning by doing. Every product starts as a simple concept, tested quickly, improved through feedback, and refined into something people can actually use.At its core, Gear is about building with purpose—transforming everyday challenges into tools that empower people and communities.",
-      direction: "left"
+      body: "Gear powers Pear.It’s our internal system for turning ideas into real products through rapid execution.Inspired by startup studios like Idealab, we build from the ground up — starting small, solving real problems, and growing through use.We focus on practical, lightweight solutions that work in real-world conditions, especially where resources are limited.Gear emphasizes experimentation, fast iteration, and learning by doing.Every product starts simple, tested quickly, and improved through real feedback.At its core, Gear is about building with purpose — turning everyday challenges into tools that empower people and communities.",
+      direction: "left",
+      alt:"image of pear logo"
     },
     {
       id: 2,
       heading: "Startup Factory",
       direction: "right",
-      body: "Pear operates as a startup factory. Instead of waiting for perfect ideas, we generate, test, and refine many small ideas continuously.\n\nEach idea is treated as an experiment:\n- Build fast\n- Test early\n- Keep what works\n- Improve or discard what doesn’t\n\nThis allows us to create multiple products instead of relying on a single bet.",
-      image: factory_image
+      body: "Pear operates as a startup factory.Instead of waiting for perfect ideas, we continuously generate, test, and refine small ideas.Each idea is treated as an indepedent product:We Build fast,Test early,Keep what works Improve or discard what doesn’t,This approach allows us to create multiple products instead of relying on a single bet.",
+      image: factory_image,
+      alt:"image of a laptop startup factory"
     },
     {
       id: 3,
       heading: "From Idea to Product",
       direction: "left",
-      body: "Every project in Pear moves through a simple pipeline: idea → prototype → test → refine → launch.\n\nWe prioritize working software over planning. A simple working product is more valuable than a perfect idea that never ships.\n\nOur goal is to reduce the distance between thinking and building.",
-      image: idea_image
+      body: "Every project in Pear follows a simple pipeline:idea → prototype → test → refine → launchWe prioritize working software over planning.A simple product that works is more valuable than a perfect idea that never ships.Our goal is to reduce the distance between thinking and building.",
+      image: idea_image,
+       alt:"image of a laptop from idea to product"
     },
     {
       id: 4,
       heading: "Built for Real Conditions",
       direction: "right",
       body: "Pear products are designed for real-world environments — including limited connectivity, low-end devices, and everyday constraints.\n\nWe focus on:\n- Lightweight systems\n- Offline-first design\n- Peer-to-peer capabilities\n\nConstraints are not limitations — they guide better engineering decisions.",
-      image: built_image
+      image: built_image,
+      alt:"image of a laptop Built for Real Conditions"
     },
     {
       id: 5,
       heading: "Growing Ideas Into Startups",
       direction: "left",
-      body: "Some Pear projects remain small tools. Others grow into full products or independent startups.\n\nGear exists to give ideas a path to become something bigger — through iteration, usage, and continuous improvement.\n\nWe don’t wait for permission to build. We start, learn, and evolve.",
-      image: startup_image
+      body: "Some Pear projects remain small tools.Others grow into full products or independent startups.Gear exists to give ideas a path to become something bigger — through iteration, usage, and continuous improvement.We don’t wait for permission to build.We start, learn, and evolve.",
+      image: startup_image,
+      alt:"growing ideas into startups"
     }],banner:gear_banner,background:gear_background,gameConfig:{
       images:gearGameImages,
       audio:pear_audio
@@ -102,9 +108,10 @@ const accordianData=[
     { id: 2, heading: "Pear Goals", text: "creating employment among the youth by building locally made solutions and building communities" },
 ]
 const reviewData=[
-  {id:1,name:"Brian Ruhiu",heading:"Computer Programmer",text:"best thing since mpesa",image:brian_pic},
-  {id:2,name:"Charles Kuria",heading:"Gamer/Artist",text:"a fresh of breath air in the kenyan tech space",image:charles_pic},{
+  {alt:"image of brian ruhiu",id:1,name:"Brian Ruhiu",heading:"Computer Programmer",text:"best thing since mpesa",image:brian_pic},
+  {alt:"image of charles kuria",d:2,name:"Charles Kuria",heading:"Gamer/Artist",text:"a fresh of breath air in the kenyan tech space",image:charles_pic},{
     id: 3,
+    alt:"image of muya wa karuga",
     name: "Muya Wa Karuga",
     heading: "Writer/Swimming coach",
     text: "finally something being built for people like us, not just big companies",
@@ -112,6 +119,7 @@ const reviewData=[
   },
   {
     id: 4,
+    alt:"image of eugene muruga",
     name: "Eugene Muruga",
     heading: "Digital artist",
     text: "you can actually feel the intention behind this, its not just another app",
@@ -119,6 +127,7 @@ const reviewData=[
   },
   {
     id: 5,
+    alt:"image of brian muthie",
     name: "Brian Muthie",
     heading: "CS student",
     text: "peer to peer focus is what makes this stand out, especially in our environment",
@@ -126,6 +135,7 @@ const reviewData=[
   },
   {
     id: 6,
+    alt:"image of kats",
     name: "Kats",
     heading: "Student",
     text: "simple ideas but very powerful direction, this can grow into something big",
@@ -133,13 +143,15 @@ const reviewData=[
   },
   {
     id: 7,
-    name: "Bridget Mwihaki",
+    alt:"image of bree",
+    name: "Bree",
     heading: "Medical doctor",
     text: "this is the kind of tech we need locally, practical and not overcomplicated",
     image:bree_pic
   },
   {
     id: 8,
+    alt:"image of james ngugi",
     name: "James Ngugi",
     heading: "Enterprenuer/Medical doctor",
     text: "tested some of the ideas and they actually work, thats what matters",
@@ -147,6 +159,7 @@ const reviewData=[
   },
   {
     id: 9,
+    alt:"image of martking highness",
     name: "Martking Higness",
     heading: "Artist/Musician",
     text: "clean concept, strong vision and it feels very community driven",
@@ -154,6 +167,7 @@ const reviewData=[
   },
   {
     id: 10,
+    alt:"image of george njenga",
     name: "George Njenga",
     heading: "Enterprenuer",
     text: "gear approach of building many small projects is smart, more chances to win",
@@ -204,6 +218,7 @@ const serviceData=[{
 const foundersData = [
   {
     id: 1,
+    alt:"image of brian ruhiu",
     name: "Brian Ruhiu",
     image: brianMuhia_pic,
     role: "Computer Programmer",
@@ -211,6 +226,7 @@ const foundersData = [
   },
   {
     id: 2,
+    alt:"image of muya wa karuga",
     name: "Muya Wa Karuga",
     image: melvinMuya_pic,
     role: "Writer/Swimming Coach",
@@ -218,6 +234,7 @@ const foundersData = [
   },
   {
     id: 3,
+    alt:"image of martking highness",
     name: "Martking Highness",
     image: martkingSteve_pic,
     role: "Artist/Musician",
@@ -225,6 +242,6 @@ const foundersData = [
   }
 ];
 const appData=[{id:1,heading:"Camshare",image:"🌐",status:"complete"}]
-const icons={facebook,instagram,github,twitter}
+const icons=[{id:1,image:facebook,link:"",alt:"facebook link to pear facebook account"},{id:2,image:instagram,link:"",alt:"instagram link to pear instagram account"},{id:3,image:github,link:"",alt:"github link to pear github account"},{id:4,image:twitter,link:"",alt:"twitter link to pear twitter account"}]
 
 export {accordianData,reviewData,serviceData,appData,modeData,icons,foundersData}

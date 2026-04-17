@@ -3,7 +3,7 @@
   color: var(--text-light);
   font-family: var(--font-family);
   width: 100%;
- 
+
   
 }
 
@@ -14,13 +14,13 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
-  background-color: transparent
- 
+  background-color: transparent;
+
 }
 
-.footer-brand {
-
-
+.footer-brand{
+  margin-top:1rem;
+padding:3rem;
 }
 
 .brand-logo {
@@ -104,9 +104,8 @@ flex-direction: column;
   }
   .footer-content {
     flex-direction: row;
-    align-items: center;
-    padding:0 4em;
-    margin-left:4em;
+    margin:0 auto;
+    width:80%;
   }
 
   .social-icons {

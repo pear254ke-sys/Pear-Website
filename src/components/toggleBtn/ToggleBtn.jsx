@@ -7,7 +7,7 @@ export default function ToggleBtn() {
 
   return (
     <button
-      className={`toggle-btn ${mode}`}
+      className={`transition toggle-btn ${mode}`}
       onClick={toggleMode}
     >
       <span className="icon">

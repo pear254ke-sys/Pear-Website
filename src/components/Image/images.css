@@ -28,6 +28,9 @@
     text-align: center;
     padding: 0 20px;
     animation: fadeUp 1s ease-out;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease-out forwards;
   }
   
   .hero-title {
@@ -80,8 +83,6 @@
   
  
   @media (max-width: 768px) {
-    .hero-section {
-    
-    }
+ 
   }
   

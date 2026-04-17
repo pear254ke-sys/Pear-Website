@@ -2,7 +2,7 @@ import "./cards.css"
 import {foundersData} from "../../utils/data"
 function Cards(){
     const cards=foundersData.map((founder)=>{
-        return <Card name={founder.name} image={founder.image} role={founder.role} text={founder.text}/>
+        return <Card name={founder.name} image={founder.image} role={founder.role} text={founder.text} alt={founder.alt}/>
     })
     return(
         <section className="wrapper">
@@ -14,7 +14,7 @@ function Cards(){
 function Card(props){
     return (
         <article className="card">
-            <img src={props.image} alt="Card"/>
+            <img src={props.image} alt={props.alt}/>
             <div className="card-content">
                 <h4>{props.name}</h4>
                 <h5>

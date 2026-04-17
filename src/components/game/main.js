@@ -46,7 +46,15 @@ function startGame(canvas,gameStateRef,config,dim){
     ENEMY_GROW_RATE:100
   
   };
-  
+  const EXPLOSIONS={
+    START:ENEMY.ENEMY_START + ENEMY.ENEMY_COUNT,
+    SIZE:20,
+    FRAME_WIDTH: 64,
+   FRAME_HEIGHT: 64,
+   TOTAL_FRAMES: 16,
+   FPS: 12
+  }
+  const explosion_array=[]
   const PLAYER = {
     PLAYER_ID: 0,
     PLAYER_SIZE: 60 * gameScaleX,
@@ -79,7 +87,7 @@ function startGame(canvas,gameStateRef,config,dim){
     return Math.random() * (max - min) + min;
   }
   function GameEntityVectors() {
-    const ENTITY_SIZE = 42;
+    const ENTITY_SIZE = 50;
     return {
       position: new Float32Array(ENTITY_SIZE),
       size: new Float32Array(ENTITY_SIZE),
@@ -93,6 +101,21 @@ images[key]=loadImage(configImages[key])
 }
 return images
   }
+  function drawScoreboard(score, countToNextLevel) {
+    const padding = 12;
+    const x = padding;
+    const y = padding;
+    ctx.font = "16px Inter, sans-serif";
+    ctx.textBaseline = "top";
+    const boxWidth = 100;
+    const boxHeight = 30;
+    ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+    ctx.fillRect(x - 8, y - 8, boxWidth, boxHeight);
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText(`Level: ${currentLevel}`, x, y);
+    ctx.fillText(`Score: ${score}`, x, y + 22);
+    ctx.fillText(`Next: ${countToNextLevel}`, x, y + 44);
+  }
   function loadImage(src) {
     const img = new Image();
     img.src = src;
@@ -103,9 +126,11 @@ return images
   const position = gameData.position;
   const size = gameData.size;
   const consumed = gameData.consumed;  
-  function playAudio(sound) {
+  function playAudio(sound,islooped,volume) {
     if (!sound) return;
     sound.currentTime = 0;
+    sound.loop=islooped;
+    sound.volume=volume
     sound.play();
   }
   
@@ -114,6 +139,7 @@ return images
     sound.pause();
     sound.currentTime=0;
   }
+
   function setGameWindow(canvas,width,height) {
    canvas.width=width
    canvas.height=height
@@ -143,7 +169,7 @@ return images
       consumed[i] = 0;
     }
   }
- 
+
     function setGameSettings(currentLevel, gameLevelChange) {
       const level = parseInt(currentLevel) || 1;
       gameLevelChange.noOfEnemiesOnScreen = Math.min(10 + level * 2, 40);
@@ -264,14 +290,15 @@ return images
   
     if (hitPear !== -1) {
       consumed[hitPear] = 1;
-      playAudio(configAudio.eat);
+      playAudio(configAudio.eat,false,1);
       reduceSize(hitPear, PEAR.PEAR_GROW_RATE);
       increaseSize(PLAYER.PLAYER_ID, PLAYER.PLAYER_GROW_RATE);
+      
     }
   
     if (hitEnemy !== -1) {
       consumed[hitEnemy] = 1;
-      playAudio(configAudio.explosion);
+      playAudio(configAudio.explosion,false,1);
       reduceSize(hitEnemy,ENEMY.ENEMY_GROW_RATE)
       reduceSize(PLAYER.PLAYER_ID, PLAYER.PLAYER_ENEMY_SHRINK_RATE);
     }
@@ -293,7 +320,7 @@ return images
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawEntity(images.background, 0, 0, canvas.width, canvas.height, 0);
     drawEntity(images.player, position[PLAYER.PLAYER_ID], position[PLAYER.PLAYER_ID+1], size[PLAYER.PLAYER_ID], size[PLAYER.PLAYER_ID+1], 0);
-  
+    drawScoreboard(2, 100, 50)
     for (let i = PEAR.PEAR_START; i < PEAR.PEAR_START + PEAR.PEAR_COUNT*2; i += 2) {
       if (!consumed[i] && size[i] > 0)
         drawEntity(images.fodder, position[i], position[i+1], size[i], size[i+1], 0);
@@ -305,7 +332,7 @@ return images
     }
   }
   window.addEventListener('click', () => {
-    configAudio.bg_track.play()
+    playAudio(configAudio.bg_track,true,0.5);
 }, { once: true });
   function renderGameState() {
     const state = gameStateRef.current;
@@ -315,24 +342,28 @@ return images
     if (state === GAME_STATES.STATE_PLAYING) {
       configAudio.bg_track.play()
       configAudio.bg_track.loop=true
-      configAudio.volume = 0.5;
+      configAudio.bg_track.volume=0.5
       render();
     } 
     else if (state === GAME_STATES.STATE_GAMEOVER) {
    
       drawEntity(images.gameOver, 0, 0, canvas.width, canvas.height, 0);
     resetGame()
-    configAudio.bg_track.pause()
+    for(let audioKey in configAudio){
+      stopAudio(configAudio[audioKey])
+    }
     } 
     else if (state === GAME_STATES.STATE_WON) {
    
       drawEntity(images.gameWon, 0, 0, canvas.width, canvas.height, 0);
-      configAudio.bg_track.pause()
+    
       setCurrentLevel()
       resetGame()
     } 
     else if (state === GAME_STATES.STATE_PAUSED) {
-      configAudio.bg_track.pause()
+      for(let audioKey in configAudio){
+        stopAudio(configAudio[audioKey])
+      }
       drawEntity(images.gamePaused, 0, 0, canvas.width, canvas.height, 0);
     }
   }

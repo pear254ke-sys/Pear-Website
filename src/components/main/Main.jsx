@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 function Main(){
      const {data} = useContext(ModeContext)
     const sections=data.sectionData.map((section)=>{
-return <Section key={section.id} id={section.id} image={section.image} heading={section.heading} body={section.body} direction={section.direction}/>
+return <Section key={section.id} id={section.id} image={section.image} heading={section.heading} body={section.body} direction={section.direction} alt={section.alt}/>
     })
 return(<main className="main-class">
     
@@ -69,7 +69,7 @@ function Section(props) {
                 <h1 className="section-heading">{props.heading}</h1>
                 <p className="section-paragraph">{props.body}</p>
             </article>
-            <img src={props.image} className="section-image" alt="section" /></>}
+            <img src={props.image} className="section-image" alt={props.alt} /></>}
            
         
           

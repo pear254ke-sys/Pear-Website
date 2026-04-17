@@ -38,14 +38,14 @@ function Contact() {
 }
 
 function Navbar() {
-  return (
-    <nav className="social-icons">
-      <a href="#"><img src={icons.facebook} alt="Facebook" /></a>
-      <a href="#"><img src={icons.instagram} alt="Instagram" /></a>
-      <a href="#"><img src={icons.github} alt="GitHub" /></a>
-      <a href="#"><img src={icons.twitter} alt="Twitter" /></a>
-    </nav>
-  );
-}
+  const links = icons.map((item) => {
+    return (
+      <a href={item.link} key={item.id} target="_blank">
+        <img src={item.image} alt={item.alt || "social icon"} />
+      </a>
+    );
+  });
 
+  return <nav className="social-icons">{links}</nav>;
+}
 export default Footer;

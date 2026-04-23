@@ -3,7 +3,8 @@ import { NavLink } from 'react-router';
 import pear from '../../assets/dark_logo.webp';
 import './header.css';
 import ToggleBtn from '../toggleBtn/ToggleBtn';
-
+import Selectbox from '../selectbox/Selectbox';
+import { getCurrentTextData,getImageFromData } from "../../Data_File/dataAbstract"
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,6 +22,7 @@ function Header() {
         </div>
         
       </section>
+      
     </header>
   );
 }
@@ -49,13 +51,19 @@ function MenuToggle({ isOpen, toggleMenu }) {
 }
 
 function Navbar({ isOpen, closeMenu }) {
+  const navData=getCurrentTextData("navData");
+ 
+  const links=navData.map((item)=>{
+    
+     let itemData=getImageFromData("navData",item.id)
+     
+
+      return <li><NavLink to={itemData.to} className="link" onClick={closeMenu}>{item.name}</NavLink></li>
+  })
   return (
     <nav className={`nav-bar ${isOpen ? 'active' : ''}`}>
       <ul className="nav-links">
-        <li><NavLink to="/" className="link" onClick={closeMenu}>Home</NavLink></li>
-        <li><NavLink to="/apps" className="link" onClick={closeMenu}>Our Apps</NavLink></li>
-        <li><NavLink to="/services" className="link" onClick={closeMenu}>Services</NavLink></li>
-        <li><NavLink to="/contact" className="link" onClick={closeMenu}>Contact Us</NavLink></li>
+{links}
       </ul>
     </nav>
   );

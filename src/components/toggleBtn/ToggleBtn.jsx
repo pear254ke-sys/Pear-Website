@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./togglebtn.css";
-import { ModeContext } from '../../utils/ModeContext';
+import { ModeContext } from '../../Data_File/ModeContext';
 import { useContext } from "react"
 export default function ToggleBtn() {
   const { mode, toggleMode} = useContext(ModeContext)

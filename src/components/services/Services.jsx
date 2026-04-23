@@ -1,16 +1,21 @@
 import "./services.css"
-import{ serviceData} from "../../utils/data.js"
+import { getImageFromData,getCurrentTextData } from "../../Data_File/dataAbstract";
 import Title from "../../components/title/Title"
 function Services(){
-    const services=serviceData.map((service)=>{
-return <Service key={service.id} heading={service.heading} text={service.text} skills={service.skills}/>
-    })
+  const servicePageParagraph=getCurrentTextData("pageText","servicePageParagraph");
+  const servicePageHeading=getCurrentTextData("pageText","servicePageHeading");
+  const serviceData=getCurrentTextData("serviceData");
+  const services=serviceData.map((service)=>{
+     let servicesData=getImageFromData("serviceData",service.id)
+
+      return <Service heading={servicesData.heading}  text={service.text}  id={service.id} skills={servicesData.skills}/>
+  })
     return(
         <main class="services" id="services">
         <div class="services-container">
           <article class="services-header">
-            <Title title="Our Services"/>
-            <p>We build fast, scalable, and user-focused digital products.</p>
+            <Title title={servicePageHeading}/>
+            <p>{servicePageParagraph}</p>
           </article>
       
           <section class="services-grid">

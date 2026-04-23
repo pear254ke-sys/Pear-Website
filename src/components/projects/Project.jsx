@@ -1,13 +1,17 @@
 import Title from "../title/Title"
 import GameCanvas from "../game/CanvasGame"
-import {appData} from "../../utils/data"
+import {appData} from "../../Data_File/data.js"
+import { getCurrentTextData } from "../../Data_File/dataAbstract.jsx";
 import { useState } from "react";
 import "./project.css"
 function Project(){
+  const pageInfo=getCurrentTextData("pageText");
+  console.log(pageInfo)
+
     return(<>
-     <Demo/>
+     <Demo heading={pageInfo["appPageHeading"]} paragraph1={pageInfo["demoParagraph"]} btnTxt={pageInfo["appPagePlayBtn"]}  paragraph2={pageInfo["demoParagraph"]} demoHeading={pageInfo["demoHeading"]} />
      
-      <FollowSection/>
+      <FollowSection heading={pageInfo["followHeading"]}/>
     </>
      
     )
@@ -29,26 +33,24 @@ function PearApp(props){
       <span class="project-status status-soon">{props.text}</span>
     </section>)
   }
-  function Demo(){
+  function Demo(props){
     const [state, setState] = useState(true);
    const handleClick = () => setState(prev => !prev);;
       return(<div>   <section class="projects-section">
 
-        <Title title="Explore What We Built" />
+        <Title title={props.heading} />
         <p class="section-subtitle">
-          See our projects and try out an interactive demo to understand the
-          potential of peer-powered technologies.
+          {props.paragraph1}
         </p>
         <PearApps/>
       </section><section class="demo-section">
           <div class="demo-card">
             <div class="demo-text-content">
-              <h2 class="card-title">Interactive Demo</h2>
+              <h2 class="card-title">{props.heading}</h2>
               <p class="card-description">
-                A small experiment showing how direct connections grow.
-                We connect, we build, and together we grow.
+                {props.paragraph2}
               </p>
-              <button class="try-demo-button" onClick={handleClick}>   {state ? "play" : "pause"}</button>
+              <button class="try-demo-button" onClick={handleClick}>{props.btnTxt}</button>
             </div>
             <div class="demo-illustration">
               <GameCanvas gameState={state}/>
@@ -56,11 +58,11 @@ function PearApp(props){
           </div>
         </section></div>   )
   }
-  function FollowSection()
+  function FollowSection(props)
 {
   return(
       <section class="follow-section-title">
-      <h2 class="section-title">Follow Pear</h2>
+      <h2 class="section-title">{props.followHeading}</h2>
     </section>
   )
 }

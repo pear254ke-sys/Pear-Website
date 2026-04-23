@@ -1,5 +1,5 @@
 import {useState,useEffect,useRef,useContext} from 'react'
-import { ModeContext } from "../../utils/ModeContext";
+import { ModeContext } from "../../Data_File/ModeContext";
 import canvasGame from "./game";
 export default function GameCanvas(props) {
   const { data } = useContext(ModeContext);

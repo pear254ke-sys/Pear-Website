@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
 import './accordion.css';
-import { accordianData } from "../../utils/data";
-
+import { useState } from 'react';
+import { getCurrentTextData } from '../../Data_File/dataAbstract';
 function Accordion() {
+  const textData=getCurrentTextData("accordianData")
   const [openId, setOpenId] = useState(null);
-
   const handleToggle = (id) => {
     setOpenId(openId === id ? null : id); 
   };
 
   return (
     <section className="accordion-container">
-      {accordianData.map((item) => (
+      {textData.map((item) => (
         <AccordionItem
           key={item.id}
           id={item.id}

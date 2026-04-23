@@ -1,5 +1,5 @@
 import "./title.css";
-import { ModeContext } from "../../utils/ModeContext";
+import { ModeContext } from "../../Data_File/ModeContext";
 import { useContext } from "react"
 function Title(props) {
   const {data} = useContext(ModeContext)

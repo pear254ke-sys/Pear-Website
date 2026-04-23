@@ -1,18 +1,23 @@
 import "./main.css"
-import { ModeContext } from "../../utils/ModeContext"
-import { useContext } from "react"
+import Title from "../title/Title";
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getCurrentTextData,getImageFromData } from "../../Data_File/dataAbstract"
 gsap.registerPlugin(ScrollTrigger);
 function Main(){
-     const {data} = useContext(ModeContext)
-    const sections=data.sectionData.map((section)=>{
-return <Section key={section.id} id={section.id} image={section.image} heading={section.heading} body={section.body} direction={section.direction} alt={section.alt}/>
+    const sectionsData=getCurrentTextData("sectionData");
+    const homePageSectionHeading=getCurrentTextData("pageText","homePageSectionHeading")
+    const sections=sectionsData.map((section)=>{
+       let sectionData=getImageFromData("sectionData",section.id)
+       console.log(sectionData)
+
+        return <Section heading={section.heading} alt={section.alt} body={section.body} direction={sectionData["direction"]} image={sectionData["image"]}/>
     })
+
 return(<main className="main-class">
-    
+    <Title title={homePageSectionHeading} />
     <section className="main">{sections}</section>
     
 </main>)

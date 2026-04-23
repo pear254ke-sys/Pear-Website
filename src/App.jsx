@@ -4,8 +4,9 @@ import Homepage from "./pages/homepage/Homepage";
 import Servicepage from "./pages/servicespage/Servicepage";
 import Contactpage from "./pages/contactpage/Contactpage";
 import AppsPage from "./pages/appspage/Appspage";
-import { useEffect,useState } from "react";
-import { ModeProvider } from "./utils/ModeContext";
+import { useEffect} from "react";
+import { ModeProvider } from "./Data_File/ModeContext";
+import { LanguageProvider } from "./Data_File/TranslatorContext";
 
 
 const router = createBrowserRouter([
@@ -34,15 +35,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [loading,setIsLoading]=useState(true)
-  const handleLoad = () => {
-    setIsLoading(false);
-  };
   useEffect(() => {
     const slowScroll = (e) => {
       e.preventDefault();
       window.scrollBy({
-        top: e.deltaY * 0.8,
+        top: e.deltaY * 0.99,
         left: 0,
         behavior: "smooth",
       });
@@ -52,19 +49,15 @@ function App() {
 
     return () => window.removeEventListener("wheel", slowScroll);
   }, []);
-  useEffect(() => {
-    if (document.readyState === 'complete') {
-      handleLoad();
-    } else {
-      window.addEventListener('load', handleLoad);
-      return () => window.removeEventListener('load', handleLoad);
-    }
-  }, []);
+
   
   return (
-    <ModeProvider load={loading}>
-      <RouterProvider router={router} />
-  </ModeProvider>
+    <ModeProvider>
+  <LanguageProvider>
+  <RouterProvider router={router} />
+  </LanguageProvider>
+</ModeProvider>
+   
     
   
   );

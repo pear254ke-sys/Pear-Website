@@ -1,7 +1,7 @@
 import React from "react";
 import "./footer.css";
 import "../../App.css";
-import { icons } from "../../utils/data.js";
+import { icons } from "../../Data_File/data.js";
 
 function Footer() {
   return (

@@ -1,8 +1,8 @@
-import pear_eat from "../assets/eat.mp3"
-import pear_explosion from "../assets/explosion.mp3"
-import bg_track from "../assets/bg_track.mp3"
-const pear_audio={eat:pear_eat,explosion:pear_explosion,bg_track:bg_track}
-const gear_audio=pear_audio
+import pearEat from "../assets/eat.mp3"
+import pearExplosion from "../assets/explosion.mp3"
+import bgTrack from "../assets/bg_track.mp3"
+const pearAudio={eat:pearEat,explosion:pearExplosion,bg_track:bgTrack}
+const gearAudio=pearAudio
 
 const loadTrack = (url) => {
     return new Promise((resolve, reject) => {
@@ -13,9 +13,9 @@ const loadTrack = (url) => {
     });
   };
   
-async function loadTracks(audio){
+async function loadTracks(){
     let tracks=undefined
-tracks=await loadGameAudio(pear_audio)
+tracks=await loadGameAudio(pearAudio)
 if(tracks===undefined){
     return {}
 }
@@ -37,7 +37,7 @@ return tracks
       throw new Error("One or more tracks failed to load");
     }
   }
-  const pear_tracks=await loadTracks(pear_audio)  
-const gear_tracks=pear_tracks 
-  export {pear_tracks,gear_tracks}
+  const pearTracks=await loadTracks()  
+const gearTracks=pearTracks 
+  export {pearTracks,gearTracks}
   

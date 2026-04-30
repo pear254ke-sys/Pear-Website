@@ -2,7 +2,7 @@ import React from "react";
 import "./footer.css";
 import "../../App.css";
 import { icons } from "../../Data_File/data.js";
-
+import {getStaticData} from "../../Data_File/dataAbstract.jsx"
 function Footer() {
   return (
     <footer className="footer-container">
@@ -38,6 +38,7 @@ function Contact() {
 }
 
 function Navbar() {
+  const {icons}=getStaticData()
   const links = icons.map((item) => {
     return (
       <a href={item.link} key={item.id} target="_blank">

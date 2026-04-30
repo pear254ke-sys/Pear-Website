@@ -3,8 +3,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel'
-import {reviewData} from "../../Data_File/data.js"
-import { getCurrentTextData } from "../../Data_File/dataAbstract"
+import { getCurrentTextData,getStaticData } from "../../Data_File/dataAbstract"
 import Title from "../title/Title.jsx";
 function useWindowSize() {
     const [size, setSize] = useState(window.innerWidth);
@@ -16,6 +15,7 @@ function useWindowSize() {
     return size;
   }
 function Reviews_Carousel(){
+  const {reviewData}=getStaticData()
   const homePageReviewsHeading=getCurrentTextData("pageText","homePageReviewsHeading")
   const reviews=reviewData.map((review)=>{
 return <Item name={review.name} heading={review.heading} text={review.text} image={review.image} alt={review.alt}/>

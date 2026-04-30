@@ -2,6 +2,7 @@ import { ModeContext } from "./ModeContext";
 import { useContext } from "react"
 import { LanguageContext } from "./TranslatorContext"
 import translations from "./dataTranslator"
+import { reviewData,icons, appData } from "./data";
 function getCurrentTextData(objectName,textKey="") {
     const { mode } = useContext(ModeContext);
     const { lang } = useContext(LanguageContext);
@@ -24,4 +25,7 @@ function getImageFromData(objectName,objectId){
 return objData
     
 }
-export {getCurrentImageData,getCurrentTextData,getImageFromData}
+function getStaticData(){
+    return {reviewData,icons,appData}
+}
+export {getCurrentImageData,getCurrentTextData,getImageFromData,getStaticData}

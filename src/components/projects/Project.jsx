@@ -1,7 +1,6 @@
 import Title from "../title/Title"
 import GameCanvas from "../game/CanvasGame"
-import {appData} from "../../Data_File/data.js"
-import { getCurrentTextData } from "../../Data_File/dataAbstract.jsx";
+import { getCurrentTextData,getStaticData } from "../../Data_File/dataAbstract.jsx";
 import { useState } from "react";
 import "./project.css"
 function Project(){
@@ -17,6 +16,7 @@ function Project(){
     )
 }
 function PearApps(){
+  const {appData}=getStaticData()
   const apps=appData.map((app)=>{
 return <PearApp heading={app.heading} image={app.image}/>
   })

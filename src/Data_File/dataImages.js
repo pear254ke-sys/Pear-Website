@@ -6,8 +6,8 @@ import pearBanner from "../assets/pear_banner.webp"
 import pearBackground from "../assets/pear_background.webp"
 import gearBanner from "../assets/gear_banner.webp"
 import gearBackground from "../assets/gear_background.webp"
-import gearVerticalVine from "../assets/gear_vertical_vine.png"
-import pearVerticalVine from "../assets/pear_vertical_vine.png"
+import gearVerticalVine from "../assets/gear_vertical_vine.webp"
+import pearVerticalVine from "../assets/pear_vertical_vine.webp"
 import facebook from "../assets/facebook.webp";
 import instagram from "../assets/instagram.webp";
 import github from "../assets/github.webp";
@@ -40,5 +40,5 @@ import gearPlayer from "../assets/gear_player.webp"
 import brokenCog from "../assets/broken_cog.webp"
 import gearBg from "../assets/gear_bg.webp"
 import gearPaused from "../assets/gear_paused.webp"
-import explosionSprite from "../assets/explosion_sprite.png"
+import explosionSprite from "../assets/explosion_sprite.webp"
 export {explosionSprite,gearPaused,gearBanner,gearBackground,gearBg,breePic,brianMuhiaPic,brokenCog,gearPlayer,startupImage,ideaImage,builtImage,factoryImage,martkingStevePic,melvinMuyaPic,jamesPic,muthiePic,georgePic,stevePic,katsPic,muyaPic,charlesPic,brianPic,uginePic,bombImg,playerImg,pearImg,gameWon,gamePaused,gameOver,gameBg,facebook,instagram,twitter,github,gearVerticalVine,pearVerticalVine,pearBackground,pearBanner,community,peers,peersConn,darkLogo}

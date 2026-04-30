@@ -27,6 +27,25 @@ def convert_png_to_webp(folder_path):
             except Exception as e:
                 print(f"Failed to convert {filename}: {e}")
 
-# --- Set your folder path here ---
+
 target_folder = '../assets' 
 convert_png_to_webp(target_folder)
+
+
+def compress_webp_in_place(folder_path, quality=70):
+    """
+    Compresses WebP images and overwrites the original files.
+    """
+    for filename in os.listdir(folder_path):
+        if filename.lower().endswith(".webp"):
+            file_path = os.path.join(folder_path, filename)
+            
+            try:
+                with Image.open(file_path) as img:
+                    # method=6 ensures the smallest file size possible at that quality
+                    img.save(file_path, "WEBP", quality=quality, method=6)
+                print(f"Compressed and updated: {filename}")
+            except Exception as e:
+                print(f"Failed to process {filename}: {e}")
+  
+compress_webp_in_place(target_folder)

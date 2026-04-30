@@ -211,4 +211,4 @@ const pearMode={serviceData:servicesData,imageData:imageData,sectionData:pearSec
           audio:pearAudio
         },navData:navData}
         const modeData={"pear":pearMode,"gear":gearMode}
-export {accordianData,reviewData,appData,modeData,icons}
+export {reviewData,appData,modeData,icons}

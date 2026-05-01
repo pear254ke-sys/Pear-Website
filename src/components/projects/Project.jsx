@@ -1,5 +1,4 @@
 import Title from "../title/Title"
-import GameCanvas from "../game/CanvasGame"
 import { getCurrentTextData,getStaticData } from "../../Data_File/dataAbstract.jsx";
 import { useState } from "react";
 import "./project.css"
@@ -43,20 +42,7 @@ function PearApp(props){
           {props.paragraph1}
         </p>
         <PearApps/>
-      </section><section class="demo-section">
-          <div class="demo-card">
-            <div class="demo-text-content">
-              <h2 class="card-title">{props.heading}</h2>
-              <p class="card-description">
-                {props.paragraph2}
-              </p>
-              <button class="try-demo-button" onClick={handleClick}>{props.btnTxt}</button>
-            </div>
-            <div class="demo-illustration">
-              <GameCanvas gameState={state}/>
-            </div>
-          </div>
-        </section></div>   )
+      </section></div>   )
   }
   function FollowSection(props)
 {

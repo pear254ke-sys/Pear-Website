@@ -5,7 +5,6 @@ function Banner(){
 
    const linkText=getCurrentTextData("bannerData","bannerText")
    const bannerImage=getCurrentImageData("bannerData","banner")    
-   const bannerBackground=getCurrentImageData("bannerData","bannerBackground")
     return(
         <section className="banner-container">
             <article className="banner-content">
@@ -15,7 +14,6 @@ function Banner(){
             </article>
             
 <img src={bannerImage} alt="image of pear banner" className="transition banner-image responsive-image"/>
-<img src={bannerBackground} alt="image of pear background" className="background"/>
         </section>
     )
 }

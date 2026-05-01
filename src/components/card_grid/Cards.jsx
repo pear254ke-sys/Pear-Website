@@ -23,7 +23,10 @@ function Cards(){
 function Card(props){
     return (
         <article className="card">
-            <img src={props.image} alt={props.alt}/>
+            <div className="card-image">
+            <img src={props.image} alt={props.alt} className="image"/>
+            </div>
+            
             <div className="card-content">
                 <h4>{props.name}</h4>
                 <h5>

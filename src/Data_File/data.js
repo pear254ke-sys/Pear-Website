@@ -1,11 +1,7 @@
-import {explosionSprite,gearPaused,gearBanner,gearBackground,gearBg,breePic,brianMuhiaPic,brokenCog,gearPlayer,startupImage,ideaImage,builtImage,factoryImage,martkingStevePic,melvinMuyaPic,jamesPic,muthiePic,georgePic,stevePic,katsPic,muyaPic,charlesPic,brianPic,uginePic,bombImg,playerImg,pearImg,gameWon,gamePaused,gameOver,gameBg,facebook,instagram,twitter,github,gearVerticalVine,pearVerticalVine,pearBackground,pearBanner,community,peers,peersConn,darkLogo} from "./dataImages.js"
-import { pearTracks } from "./preload.js"
-const pearGameImages={"background":gameBg,"gameOver":gameOver,"gamePaused":gamePaused,"gameWon":gameWon,"fodder":pearImg,"player":playerImg,"enemy":bombImg,"explosion":explosionSprite}
-const gearGameImages={"background":gearBg,"enemy":brokenCog,"fodder":gearPlayer,"player":gearPlayer,"gameOver":gameOver,"gamePaused":gearPaused,"explosion":explosionSprite
- ,"gameWon":gameWon
-}
-const pearAudio=pearTracks
-const gearAudio=pearTracks
+import {gearBanner,breePic,brianMuhiaPic,startupImage,ideaImage,factoryImage,martkingStevePic,melvinMuyaPic,jamesPic,muthiePic,georgePic,stevePic,katsPic,muyaPic,charlesPic,brianPic,uginePic,facebook,instagram,twitter,github,gearVerticalVine,pearVerticalVine,pearBanner,community,peers,peersConn,darkLogo} from "./dataImages.js"
+
+
+
 const accordianData=[
     {id: 1, heading:  "heading",text:"text" },
     { id: 2, heading: "heading", text: "text" },
@@ -188,27 +184,22 @@ const gearSectionData=[{
 ,alt:"alt",direction:"left"    }]
 const bannerDataPear={
   alt:"alt",
-  banner:pearBanner,bannerBackground:pearBackground,
+  banner:pearBanner,
   bannerText:"bannerText",
   bannerHeading:"bannerHeading"
 }
-const bannerDataGear={...bannerDataPear,banner:gearBanner,bannerBackground:gearBackground,}
+const bannerDataGear={...bannerDataPear,banner:gearBanner}
 const imageData={
   imageDataHeading:"imageDataHeading",
   imageDataGoal:"imageDataGoal"
 }
 const appData=[{id:1,heading:"Camshare",image:"🌐",status:"complete"}]
 const icons=[{id:1,image:facebook,link:"",alt:"facebook link to pear facebook account"},{id:2,image:instagram,link:"",alt:"instagram link to pear instagram account"},{id:3,image:github,link:"",alt:"github link to pear github account"},{id:4,image:twitter,link:"",alt:"twitter link to pear twitter account"}]
-const pearMode={serviceData:servicesData,imageData:imageData,sectionData:pearSectionData,bannerData:bannerDataPear,gameConfig:{
-    images:pearGameImages,audio:pearAudio
-  },vine:pearVerticalVine,accordianData:accordianData,foundersData:foundersData,navData:navData,pageText:pageText}
+const pearMode={serviceData:servicesData,imageData:imageData,sectionData:pearSectionData,bannerData:bannerDataPear,vine:pearVerticalVine,accordianData:accordianData,foundersData:foundersData,navData:navData,pageText:pageText}
   const gearMode={serviceData:servicesData,imageData:imageData,bannerData:bannerDataGear,
     accordianData:accordianData,foundersData:foundersData,
     sectionData:gearSectionData,
     vine:gearVerticalVine,bannerData:bannerDataGear,
-      gameConfig:{
-          images:gearGameImages,
-          audio:pearAudio
-        },navData:navData}
+     navData:navData}
         const modeData={"pear":pearMode,"gear":gearMode}
 export {reviewData,appData,modeData,icons}

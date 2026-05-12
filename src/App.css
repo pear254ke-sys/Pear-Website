@@ -1,5 +1,5 @@
 :root {
-    --pear-green:#8FAF3E;
+    --pear-green:#7aaf3e;
     --text-dark: #1a1a1a;
     --text-medium: #4b5563;
     --text-light:#ffffff;
@@ -9,9 +9,10 @@
     --font-family:'Inter', sans-serif;
     --heading-font-family:'Space Grotesk', sans-serif;
     --bg-light-smoke:#f3f4f6;
-    --title-font-size:clamp(2rem, 1.5vw, 2.5rem);;
+    --title-font-size:1.5rem;;
     --title-font-weight:700;
-    --text-font-size:clamp(1rem, 1.2vw, 1.1rem);
+    --text-font-size-mobile:0.9rem;
+    --text-font-size-desktop:1.1rem;
     --line-height:1.75;
     --hover-color:#7E9E34;
     --btn-text:#f9fafb;

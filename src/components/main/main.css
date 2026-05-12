@@ -1,25 +1,23 @@
-:root {
-  --section-spacing: clamp(4rem, 10vw, 8rem);
-  --content-gap: 1.5rem;
-}
+
 
 .main-class {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 2rem 0.8rem;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  gap: var(--section-spacing);
+  gap:2rem;
+
 }
 
 .section {
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   perspective: 1000px; 
 }
 
@@ -41,28 +39,32 @@
   font-size: var(--title-font-size);
   font-family: var(--heading-font-family);
   color: var(--pear-green);
-  line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .section-paragraph {
-  font-size: 1.1rem;
+  font-size: var(--text-font-size-mobile);
   color: var(--text-dark);
   line-height: 1.7;
   opacity: 0.9;
-  max-width: 55ch;
   font-family: var(--font-family);
 }
 
-/* Desktop Layout */
+
 @media (min-width: 768px) {
   .section {
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+  }
+  .section-paragraph {
+    font-size: var(--text-font-size-desktop);
+   margin-bottom: 3rem;
+
+
   }
 
-  /* Target every second section to flip without extra React logic */
   .section-image {
+    width:400px;
+    height:267px;
   display:block; 
   }
   

@@ -8,7 +8,7 @@ export default function ToggleBtn() {
   return (
     <button
       className={`transition toggle-btn ${mode}`}
-      onClick={toggleMode}
+      onClick={toggleMode} aria-label="toggle button"
     >
       <span className="icon">
         {mode==='gear' ? <GearIcon /> : <PearIcon />}

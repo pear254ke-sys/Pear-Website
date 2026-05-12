@@ -58,7 +58,7 @@ function Navbar({ isOpen, closeMenu }) {
      let itemData=getImageFromData("navData",item.id)
      
 
-      return <li><NavLink to={itemData.to} className="link" onClick={closeMenu}>{item.name}</NavLink></li>
+      return <li key={item.id}><NavLink key={item.id} to={itemData.to} className="link" onClick={closeMenu}>{item.name}</NavLink></li>
   })
   return (
     <nav className={`nav-bar ${isOpen ? 'active' : ''}`}>

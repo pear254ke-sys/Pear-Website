@@ -38,7 +38,7 @@ function Item(props)
     <article className="image-container">
       <img src={props.image} alt={props.alt} className="profile-img"/>
     </article>
-    <h3 className="heading">{props.name}</h3>
+    <p className="heading">{props.name}</p>
     <p className="review-head">{props.heading}</p>
     <p className="review-text">
    {props.text}

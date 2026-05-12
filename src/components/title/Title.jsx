@@ -7,7 +7,7 @@ function Title(props) {
   return (
     <article  className="title">
       <h1 className="title-heading">{props.title}</h1>
-      <img src={data.vine} className="title-img"/>
+      <img src={data.vine} className="title-img" alt="image of a pear vine" />
     </article>
   );
 }

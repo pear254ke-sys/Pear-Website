@@ -4,12 +4,13 @@ import  Reviews_Carousel  from "../../components/carousel/Carousel"
 import Accordion from "../../components/accordion/Accordion"
 import Cards from "../../components/card_grid/Cards"
 import Images from "../../components/Image/Images"
-
+import Selectbox from "../../components/selectbox/Selectbox";
 import "./homepage.css"
 import "../../App.css"
 export default function Homepage(){
     return(
       <main className="body">
+        <Selectbox/>
          <Banner />
           <Main />
           <Accordion />

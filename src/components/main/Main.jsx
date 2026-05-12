@@ -11,9 +11,8 @@ function Main(){
     const homePageSectionHeading=getCurrentTextData("pageText","homePageSectionHeading")
     const sections=sectionsData.map((section)=>{
        let sectionData=getImageFromData("sectionData",section.id)
-       console.log(sectionData)
 
-        return <Section heading={section.heading} alt={section.alt} body={section.body} direction={sectionData["direction"]} image={sectionData["image"]}/>
+        return <Section key={section.id} heading={section.heading} alt={section.alt} body={section.body} direction={sectionData["direction"]} image={sectionData["image"]}/>
     })
 
 return(<main className="main-class">

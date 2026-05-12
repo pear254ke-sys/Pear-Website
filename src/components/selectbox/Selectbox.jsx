@@ -22,10 +22,10 @@ function Selectbox() {
           value={lang}
           onChange={handleChange}
         >
-          <option value="english">English</option>
-          <option value="swahili">Swahili</option>
-          <option value="french">French</option>
-          <option value="german">German</option>
+          <option value="english">ENG</option>
+          <option value="swahili">SWA</option>
+          <option value="french">FR</option>
+          <option value="german">GER</option>
         </select>
 
       </div>

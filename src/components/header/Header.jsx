@@ -31,7 +31,7 @@ function LogoContainer() {
   return (
     <article className="logo-container">
       <img src={pear} alt="Pear Logo" className="header-image" />
-      <span className="brand-name">PEAR</span>
+      <span className="brand-name">PEERLAB</span>
     </article>
   );
 }

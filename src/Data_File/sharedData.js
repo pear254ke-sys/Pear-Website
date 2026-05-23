@@ -39,8 +39,8 @@ const sharedDataGerman = {
     navData: [
       { id: 1, name: "Home", to: "to" },
       { id: 2, name: "Unsere Apps", to: "to" },
-      { id: 3, name: "Dienstleistungen", to: "to" },
-      { id: 4, name: "Kontakt", to: "to" }
+      // { id: 3, name: "Dienstleistungen", to: "to" },
+      { id: 3, name: "Kontakt", to: "to" }
     ],
     serviceData: [
       { id: 1, text: "Sichere und skalierbare serverseitige Systeme, die deine Anwendungen antreiben." },
@@ -103,8 +103,8 @@ const sharedDataEng={ bannerData:{bannerText:"Explore What We Build"
      navData:[
         {id:1,name:"Home",to:"to"},
         {id:2,name:"Our Apps",to:"to"},
-        {id:3,name:"Services",to:"to"},
-        {id:4,name:"Contact Us",to:"to"}
+        // {id:3,name:"Services",to:"to"},
+        {id:3,name:"Contact Us",to:"to"}
       ],
 
     serviceData:[{id:1,text:"Secure and scalable server-side systems that power your applications."},
@@ -167,8 +167,8 @@ const sharedDataSwa={
     navData: [
         {id: 1, name: "Mwanzo", to: "to"},
         {id: 2, name: "App Zetu", to: "to"},
-        {id: 3, name: "Huduma", to: "to"},
-        {id: 4, name: "Wasiliana Nasi", to: "to"}
+        // {id: 3, name: "Huduma", to: "to"},
+        {id: 3, name: "Wasiliana Nasi", to: "to"}
     ],
     
     serviceData: [
@@ -235,8 +235,8 @@ const sharedDataFrench={
     navData: [
         {id: 1, name: "Accueil", to: "to"},
         {id: 2, name: "Nos Apps", to: "to"},
-        {id: 3, name: "Services", to: "to"},
-        {id: 4, name: "Contactez-nous", to: "to"}
+        // {id: 3, name: "Services", to: "to"},
+        {id: 3, name: "Contactez-nous", to: "to"}
     ],
     serviceData: [
         {id: 1, text: "Des systèmes serveurs sécurisés et évolutifs pour propulser vos applications."},

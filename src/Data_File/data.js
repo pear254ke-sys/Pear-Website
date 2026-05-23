@@ -168,8 +168,8 @@ const foundersData = [
 const navData=[
   {id:1,name:"name",to:"/"},
   {id:2,name:"name",to:"/apps"},
-  {id:3,name:"name",to:"/services"},
-  {id:4,name:"name",to:"/contact"}
+  // {id:3,name:"name",to:"/services"},
+  {id:3,name:"name",to:"/contact"}
 ]
 
 const pearSectionData=[{

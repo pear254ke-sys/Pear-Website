@@ -1,18 +1,25 @@
 import Title from "../title/Title"
 import { getCurrentTextData,getStaticData } from "../../Data_File/dataAbstract.jsx";
 import { useState } from "react";
+import GameCanvas from "../game/CanvasGame.jsx";
 import "./project.css"
 function Project(){
   const pageInfo=getCurrentTextData("pageText");
-  console.log(pageInfo)
+  
 
     return(<>
      <Demo heading={pageInfo["appPageHeading"]} paragraph1={pageInfo["demoParagraph"]} btnTxt={pageInfo["appPagePlayBtn"]}  paragraph2={pageInfo["demoParagraph"]} demoHeading={pageInfo["demoHeading"]} />
-     
+     <Game/>
       <FollowSection heading={pageInfo["followHeading"]}/>
     </>
      
     )
+}
+function Game(){
+  return <div className="game">
+    <p>We Connect We Grow We Win,Connect The Peers To Win</p>
+    <GameCanvas/>
+  </div>
 }
 function PearApps(){
   const {appData}=getStaticData()
@@ -24,12 +31,11 @@ return <PearApp heading={app.heading} image={app.image}/>
   </section>)
 }
 function PearApp(props){
-  return ( <section class="project-item">
-      <article class="project-icon-wrapper">
-        <span class="project-icon">{props.image}</span> 
-        <span class="project-name">{props.heading}</span>
-      </article>
-      <span class="project-status status-soon">{props.text}</span>
+  return ( <section className="project-section">
+      <div class="project-item">
+        <img src={props.image}/>
+      </div>
+        <span class="project-name">{props.heading}</span> 
     </section>)
   }
   function Demo(props){

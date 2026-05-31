@@ -26,5 +26,6 @@ import martkingStevePic from "../assets/martkingSteve_pic.webp"
 import factoryImage from "../assets/factory_image.webp"
 import ideaImage from "../assets/ideas.webp"
 import startupImage from "../assets/startup_image.webp"
+import camshareIcon from "../assets/camshare_icon.webp"
 
-export {gearBanner,breePic,brianMuhiaPic,startupImage,ideaImage,factoryImage,martkingStevePic,melvinMuyaPic,jamesPic,muthiePic,georgePic,stevePic,katsPic,muyaPic,charlesPic,brianPic,uginePic,facebook,instagram,twitter,github,gearVerticalVine,pearVerticalVine,pearBanner,community,peers,peersConn,darkLogo}
+export {camshareIcon,gearBanner,breePic,brianMuhiaPic,startupImage,ideaImage,factoryImage,martkingStevePic,melvinMuyaPic,jamesPic,muthiePic,georgePic,stevePic,katsPic,muyaPic,charlesPic,brianPic,uginePic,facebook,instagram,twitter,github,gearVerticalVine,pearVerticalVine,pearBanner,community,peers,peersConn,darkLogo}

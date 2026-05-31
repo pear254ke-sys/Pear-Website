@@ -12,18 +12,7 @@
    
   }
   
-  .background {
-    position: absolute; 
-    right: 0;
-    top: 30%;
-    z-index: 1; 
-    width: 40%; 
-    height: 50%; 
-    object-position: right top; 
-    object-fit: cover;
-    display:none;
-  
-  }
+
   
   .banner-content{
     display: flex;

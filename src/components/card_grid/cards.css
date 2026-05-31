@@ -18,14 +18,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  
 }
 .image {
 width:350px;
 height: 200px;
-
-  
 }
 
 .card-content {

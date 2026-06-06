@@ -8,7 +8,7 @@ function Banner(){
     return(
         <section className="banner-container">
             <article className="banner-content">
-            <h1 className="banner-heading transition"><p>Pear-powered technology<br/>for direct connection</p></h1>
+            <h1 className="banner-heading transition"><p>Peer-powered technology<br/>for direct connection</p></h1>
             <NavLink to="/apps" className="btn transition">{linkText}</NavLink>
             
             </article>

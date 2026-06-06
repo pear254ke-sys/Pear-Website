@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./pages/layoutpage/Layoutpage";
 import Homepage from "./pages/homepage/Homepage";
-import Servicepage from "./pages/servicespage/Servicepage";
 import Contactpage from "./pages/contactpage/Contactpage";
 import AppsPage from "./pages/appspage/Appspage";
 import { useEffect} from "react";

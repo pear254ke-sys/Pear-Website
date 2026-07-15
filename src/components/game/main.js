@@ -1,3 +1,6 @@
+//sorry if you're reading/maintaining this am mutating global state everywhere,but you're smart enough to handle it
+
+
 
 function startGame(canvas,assets,dim){
 
@@ -5,6 +8,8 @@ function startGame(canvas,assets,dim){
   const ctx = canvas.getContext("2d");
   const gameScaleX=dim.width/800
   const audio=assets.audio
+  const controller = new AbortController();
+  const { signal } = controller;
   
   const GAME_STATES = {
     STATE_NOT_PLAYING:-1,
@@ -19,7 +24,7 @@ function startGame(canvas,assets,dim){
     PEAR_COUNT: 10,
     PEAR_RATE: 4,
     PEAR_SIZE: 60 * gameScaleX,
-    PEAR_SHRINK_RATE:0.001,
+    PEAR_SHRINK_RATE:0.01,
     PEAR_GROW_RATE:5
    
   };
@@ -36,7 +41,7 @@ function startGame(canvas,assets,dim){
   const explosion_array=[]
   const PLAYER = {
     PLAYER_ID: 0,
-    PLAYER_SIZE: 60 * gameScaleX,
+    PLAYER_SIZE: 100 * gameScaleX,
     PLAYER_SHRINK_RATE:0.1,
     PLAYER_ENEMY_SHRINK_RATE:0.01,
     PLAYER_GROW_RATE:5
@@ -47,13 +52,15 @@ function startGame(canvas,assets,dim){
     pearTimer: 0,
     lastTime: 0,
     accumulator: 0,
-    FIXED_STEP: 1/60
+    FIXED_STEP: 1/60,
+    gameWinReset:2000,
+    gameLostReset:500
   };
-  let changeState=true
+
   let images=assets.images
-  let animationId=requestAnimationFrame(animate);;
+  let animationId=requestAnimationFrame(animate)
   let currentGameState=GAME_STATES.STATE_PAUSED
-  let resetScheduled = false;
+
 
   function GameEntityVectors() {
     const ENTITY_SIZE = 50;
@@ -64,7 +71,7 @@ function startGame(canvas,assets,dim){
     };
   }
 
- 
+//god forgive me 
   let gameData = GameEntityVectors();
   let position = gameData.position;
   let size = gameData.size;
@@ -74,7 +81,6 @@ function startGame(canvas,assets,dim){
     audioClone.pause();
     audioClone.currentTime = 0;
     audioClone.loop=loop;
-    audioClone.currentTime=0;
     audioClone.volume=volume;
     audioClone.play();
   }
@@ -95,11 +101,6 @@ function startGame(canvas,assets,dim){
     position = gameData.position;
 size = gameData.size;
 consumed = gameData.consumed;
-      TIMER.enemyTimer= 0,
-      TIMER.pearTimer= 0,
-      TIMER.lastTime= 0,
-      TIMER.accumulator= 0,
-      TIMER.FIXED_STEP= 1/60
     createPlayer();
     createPears();
     createEnemies();
@@ -241,20 +242,17 @@ consumed = gameData.consumed;
 
   
   canvas.addEventListener("pointerenter",()=>{
-    if(changeState===true)
     currentGameState=GAME_STATES.STATE_PLAYING
-  },{touchAction:"none",once:false})
+  },{touchAction:"none",once:false,signal})
   canvas.addEventListener("pointerleave",()=>{
     currentGameState=GAME_STATES.STATE_PAUSED
-  },{touchAction:"none",once:false})
+  },{touchAction:"none",once:false,signal})
   canvas.addEventListener("pointermove", e => {
-  //  currentGameState === GAME_STATES.STATE_PLAYING
       setPlayerPos(e.clientX, e.clientY);
-    
-  },{touchAction:"none",once:false});
+  },{touchAction:"none",once:false,signal});
   canvas.addEventListener("pointerdown", () => {
     currentGameState = GAME_STATES.STATE_PLAYING;
-  },{touchAction:"none",once:false});
+  },{touchAction:"none",once:false,signal});
   function update(dt) {
     if (currentGameState !== GAME_STATES.STATE_PLAYING) return;
     if (currentGameState === GAME_STATES.STATE_WON) {
@@ -271,45 +269,43 @@ consumed = gameData.consumed;
       createEnemies();
       TIMER.enemyTimer = 0;
     }
-  
-    const hitPear = broadPhase(PLAYER.PLAYER_ID, PEAR.PEAR_START, PEAR.PEAR_COUNT, COLLISION_SCALE.pear);
-    const hitEnemy = broadPhase(PLAYER.PLAYER_ID, ENEMY.ENEMY_START, ENEMY.ENEMY_COUNT, COLLISION_SCALE.enemy);
-  
-    reduceSize(PLAYER.PLAYER_ID, PLAYER.PLAYER_SHRINK_RATE);
-  
-    if (hitPear !== -1) {
-      consumed[hitPear] = 1;
-      
-      playAudio(audio,"eat",false,1)
-      reduceSize(hitPear, PEAR.PEAR_GROW_RATE);
-      increaseSize(PLAYER.PLAYER_ID, PLAYER.PLAYER_GROW_RATE);
-      
-    }
-  
-    if (hitEnemy !== -1) {
-      consumed[hitEnemy] = 1;
-      createExplosion(
-        position[hitEnemy] + size[hitEnemy] * 0.5,
-        position[hitEnemy + 1] + size[hitEnemy + 1] * 0.5
-      );
-      playAudio(audio,"explosion",false,1)
-      reduceSize(hitEnemy,ENEMY.ENEMY_GROW_RATE)
-      reduceSize(PLAYER.PLAYER_ID, PLAYER.PLAYER_ENEMY_SHRINK_RATE);
-    }
-  
-    for (let n = 0; n < PEAR.PEAR_COUNT; n++) {
-      const i = PEAR.PEAR_START + n*2;
-      if (!consumed[i]) reduceSize(i, PEAR.PEAR_SHRINK_RATE);
-    }
-    for (let n = 0; n < ENEMY.ENEMY_COUNT; n++) {
-      const i = ENEMY.ENEMY_START + n*2;
-      if (!consumed[i]) reduceSize(i, ENEMY.ENEMY_SHRINK_RATE);
-    }
-  
+   collisionDetection() 
     if (size[PLAYER.PLAYER_ID] >= 100) currentGameState = GAME_STATES.STATE_WON;
     if (size[PLAYER.PLAYER_ID] <= 0) currentGameState = GAME_STATES.STATE_GAMEOVER;
   }
- 
+ function collisionDetection(){
+  const hitPear = broadPhase(PLAYER.PLAYER_ID, PEAR.PEAR_START, PEAR.PEAR_COUNT, COLLISION_SCALE.pear);
+  const hitEnemy = broadPhase(PLAYER.PLAYER_ID, ENEMY.ENEMY_START, ENEMY.ENEMY_COUNT, COLLISION_SCALE.enemy);
+  if (hitPear !== -1) {
+    consumed[hitPear] = 1;
+    
+    playAudio(audio,"eat",false,1)
+    reduceSize(hitPear, PEAR.PEAR_GROW_RATE);
+    increaseSize(PLAYER.PLAYER_ID, PLAYER.PLAYER_GROW_RATE);
+    
+  }
+
+  if (hitEnemy !== -1) {
+    consumed[hitEnemy] = 1;
+    createExplosion(
+      position[hitEnemy] + size[hitEnemy] * 0.5,
+      position[hitEnemy + 1] + size[hitEnemy + 1] * 0.5
+    );
+    playAudio(audio,"explosion",false,1)
+    reduceSize(hitEnemy,ENEMY.ENEMY_GROW_RATE)
+    reduceSize(PLAYER.PLAYER_ID, PLAYER.PLAYER_ENEMY_SHRINK_RATE);
+  }
+  reduceSize(PLAYER.PLAYER_ID, PLAYER.PLAYER_SHRINK_RATE);
+  for (let n = 0; n < PEAR.PEAR_COUNT; n++) {
+    const i = PEAR.PEAR_START + n*2;
+    if (!consumed[i]) reduceSize(i, PEAR.PEAR_SHRINK_RATE);
+  }
+  for (let n = 0; n < ENEMY.ENEMY_COUNT; n++) {
+    const i = ENEMY.ENEMY_START + n*2;
+    if (!consumed[i]) reduceSize(i, ENEMY.ENEMY_SHRINK_RATE);
+  }
+
+ }
   
   function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -326,56 +322,36 @@ consumed = gameData.consumed;
         drawEntity(images.enemy, position[i], position[i+1], size[i], size[i+1], 0);
     }
   }
-  let paused=false
+  
   function renderGameState() {
     const state = currentGameState;
-  
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
     if (state === GAME_STATES.STATE_PLAYING) {
-      changeState=true
+   
       render();
-      paused=false;
+   ;
     } 
     else if (state === GAME_STATES.STATE_GAMEOVER) {
-      changeState = false;
-    paused=true
+    
       drawEntity(images.gameOver, 0, 0, canvas.width, canvas.height, 0);
     
-      if (!resetScheduled) {
-        resetScheduled = true;
     
         setTimeout(() => {
-          resetScheduled = false;
+     
           setGame();
-          paused=false
-        }, 500);
-      }
-    }
-    else if (state === GAME_STATES.STATE_WON) {
- changeState=false
- paused=true
-      drawEntity(images.win, 0, 0, canvas.width, canvas.height, 0);
-      if (!resetScheduled) {
-        resetScheduled = true;
        
-      
+        }, TIMER.gameLostReset);
+      }
+    
+    else if (state === GAME_STATES.STATE_WON) {
+
+      drawEntity(images.win, 0, 0, canvas.width, canvas.height, 0);
+     
         setTimeout(() => {
-          resetScheduled = false;
-          paused=false
           setGame();
-        }, 5000);
+        }, TIMER.gameWinReset);
       }
-    } 
-    else if (state === GAME_STATES.STATE_PAUSED) {
-      changeState=true
-      
-      if(paused===true){
-        for(let key in audio){   
-          stopAudio(audio[key])
-        }
-      }
-      
+    
+    else if (state === GAME_STATES.STATE_PAUSED) {    
       drawEntity(images.gamePaused, 0, 0, canvas.width, canvas.height, 0);
      
     }
@@ -410,7 +386,7 @@ consumed = gameData.consumed;
   
   return () => {
     cancelAnimationFrame(animationId);
-    
+    controller.abort();
    ;
   };
 }

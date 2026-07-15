@@ -25,7 +25,7 @@ return <Item name={review.name} heading={review.heading} text={review.text} imag
     return (<div>
        <Title title={homePageReviewsHeading} />
       <Carousel dynamicHeight={false} autoPlay={true} infiniteLoop={true} interval={3000} emulateTouch={true} showStatus={false} stopOnHover={false} centerMode={true}
-      centerSlidePercentage={percentage} showIndicators={false} showThumbs={false}
+      centerSlidePercentage={percentage} showIndicators={false} showThumbs={true}
   >
 {reviews}
 </Carousel></div>)

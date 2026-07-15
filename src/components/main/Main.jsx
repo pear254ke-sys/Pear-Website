@@ -21,6 +21,14 @@ return(<main className="main-class">
     
 </main>)
 }
+function SectionText(props){
+return(
+    <article className="section-content">
+                <h1 className="section-heading">{props.heading}</h1>
+                <p className="section-paragraph">{props.body}</p>
+            </article>
+)
+}
 function Section(props) {
     const elementRef = useRef();
     const direction = props.direction === "right" ? true : false;
@@ -65,14 +73,8 @@ function Section(props) {
     return (
         <section className="section" ref={elementRef}>
             {props.direction==="right" ?  <><img src={props.image} className="section-image" alt="section" />
-            <article className="section-content">
-                <h1 className="section-heading">{props.heading}</h1>
-                <p className="section-paragraph">{props.body}</p>
-            </article></> :    <>
-            <article className="section-content">
-                <h1 className="section-heading">{props.heading}</h1>
-                <p className="section-paragraph">{props.body}</p>
-            </article>
+            <SectionText heading={props.heading} body={props.body}/></> :    <>
+          <SectionText heading={props.heading} body={props.body}/>
             <img src={props.image} className="section-image" alt={props.alt} /></>}
            
         
@@ -81,4 +83,5 @@ function Section(props) {
         </section>
     );
 }
+
 export default Main

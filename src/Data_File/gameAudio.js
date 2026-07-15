@@ -1,6 +1,6 @@
-import eat from "../assets/eat.mp3";
-import explosion from "../assets/explosion.mp3";
-import bg_track from "../assets/bg_track.mp3";
+import eat from "../assets/eat.wav";
+import explosion from "../assets/explosion.wav";
+import bg_track from "../assets/bg_track.ogg";
 
 const unloadedAudio = { eat, explosion, bg_track };
 const loadedAudio = {};
@@ -17,12 +17,12 @@ function loadAudioElement(key, url) {
   });
 }
 
-// Top-level await blocks export until all promises resolve
+
 const promises = Object.keys(unloadedAudio).map(key => 
   loadAudioElement(key, unloadedAudio[key])
 );
 
 await Promise.all(promises); 
 
-// This export will only happen AFTER all audio files are 100% loaded
+
 export default loadedAudio;

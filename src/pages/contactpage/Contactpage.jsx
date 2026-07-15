@@ -3,9 +3,8 @@ import "../../App.css"
 import Form from "../../components/form/Form";
 function Contact(){
   return (
-    <body className="body">
+   
        <Form/>
-    </body>
  
   );
 };

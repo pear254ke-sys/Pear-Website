@@ -48,6 +48,8 @@
   line-height: 1.7;
   opacity: 0.9;
   font-family: var(--font-family);
+  overflow-wrap: break-word;
+ 
 }
 
 

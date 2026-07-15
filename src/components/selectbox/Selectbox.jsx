@@ -12,9 +12,6 @@ function Selectbox() {
 
   return (
     <div className="select-container">
-      <label className="select-label" htmlFor="language-select">
-        Lang:
-      </label>
       <div className="select-wrapper">
         <select 
           id="language-select"

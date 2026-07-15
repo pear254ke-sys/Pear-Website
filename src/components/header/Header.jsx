@@ -17,6 +17,7 @@ function Header() {
         <LogoContainer />
         <Navbar isOpen={isOpen} closeMenu={closeMenu} />
         <div className="control-btns">
+        <Selectbox/>
         <ToggleBtn />
         <MenuToggle isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>

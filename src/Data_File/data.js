@@ -193,7 +193,7 @@ const imageData={
   imageDataHeading:"imageDataHeading",
   imageDataGoal:"imageDataGoal"
 }
-const appData=[{id:1,heading:"Camshare",image:camshareIcon}]
+const appData=[{id:1,heading:"KameraStudio",image:camshareIcon}]
 const icons=[{id:1,image:facebook,link:"",alt:"facebook link to pear facebook account"},{id:2,image:instagram,link:"",alt:"instagram link to pear instagram account"},{id:3,image:github,link:"",alt:"github link to pear github account"},{id:4,image:twitter,link:"",alt:"twitter link to pear twitter account"}]
 const pearMode={serviceData:servicesData,imageData:imageData,sectionData:pearSectionData,bannerData:bannerDataPear,vine:pearVerticalVine,accordianData:accordianData,foundersData:foundersData,navData:navData,pageText:pageText}
   const gearMode={serviceData:servicesData,imageData:imageData,bannerData:bannerDataGear,

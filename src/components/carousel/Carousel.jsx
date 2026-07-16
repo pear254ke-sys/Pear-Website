@@ -1,50 +1,59 @@
-import "./carousel.css"
 import React from 'react';
-import { useState, useEffect } from 'react';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
-import { Carousel } from 'react-responsive-carousel'
-import { getCurrentTextData,getStaticData } from "../../Data_File/dataAbstract"
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+import { getCurrentTextData, getStaticData } from "../../Data_File/dataAbstract";
 import Title from "../title/Title.jsx";
-function useWindowSize() {
-    const [size, setSize] = useState(window.innerWidth);
-    useEffect(() => {
-      const handleResize = () => setSize(window.innerWidth);
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
-    return size;
-  }
-function Reviews_Carousel(){
-  const {reviewData}=getStaticData()
-  const homePageReviewsHeading=getCurrentTextData("pageText","homePageReviewsHeading")
-  const reviews=reviewData.map((review)=>{
-return <Item name={review.name} heading={review.heading} text={review.text} image={review.image} alt={review.alt}/>
-  })
-    const width = useWindowSize();
-    const percentage = width < 768 ? 100 : width < 1024 ? 45 : 30;
-    return (<div>
-       <Title title={homePageReviewsHeading} />
-      <Carousel dynamicHeight={false} autoPlay={true} infiniteLoop={true} interval={3000} emulateTouch={true} showStatus={false} stopOnHover={false} centerMode={true}
-      centerSlidePercentage={percentage} showIndicators={false} showThumbs={true}
-  >
-{reviews}
-</Carousel></div>)
+
+// Import your custom styling to handle layout and item sizing
+import "./carousel.css";
+
+function Reviews_Carousel() {
+  const { reviewData } = getStaticData();
+  const homePageReviewsHeading = getCurrentTextData("pageText", "homePageReviewsHeading");
+
+  // Initialize Embla with loop configuration and the Autoplay plugin
+  const [emblaRef] = useEmblaCarousel(
+    { loop: true }, 
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+  );
+
+  return (
+    <div>
+      <Title title={homePageReviewsHeading} />
+      
+      {/* Embla Viewport */}
+      <div className="embla" ref={emblaRef}>
+        {/* Embla Container */}
+        <div className="embla__container">
+          {reviewData.map((review, index) => (
+            /* Embla Slide Wrapper */
+            <div className="embla__slide" key={index}>
+              <Item 
+                name={review.name} 
+                heading={review.heading} 
+                text={review.text} 
+                image={review.image} 
+                alt={review.alt} 
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
-function Item(props)
-{
-    return(
-       
+
+function Item(props) {
+  return (
     <section className="review-card">
-    <article className="image-container">
-      <img src={props.image} alt={props.alt} className="profile-img"/>
-    </article>
-    <p className="heading">{props.name}</p>
-    <p className="review-head">{props.heading}</p>
-    <p className="review-text">
-   {props.text}
-    </p>
-  </section>
-  
-    )
+      <article className="image-container">
+        <img src={props.image} alt={props.alt} className="profile-img"/>
+      </article>
+      <p className="heading">{props.name}</p>
+      <p className="review-head">{props.heading}</p>
+      <p className="review-text">{props.text}</p>
+    </section>
+  );
 }
-export default Reviews_Carousel
+
+export default Reviews_Carousel;

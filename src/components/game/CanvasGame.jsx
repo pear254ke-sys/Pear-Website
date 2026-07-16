@@ -28,7 +28,7 @@ export default function GameCanvas(props) {
     if (!canvas) return;
 
     
-    const gameWidth = Math.min(screenSize.width, 750);
+    const gameWidth = Math.min(screenSize.width, 740);
     const gameHeight = Math.min(screenSize.width/1.5,768); 
 const dim={width:gameWidth,height:gameHeight}
     const stopGame = canvasGame(canvas,assets,dim);

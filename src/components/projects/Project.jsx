@@ -17,7 +17,7 @@ function Project(){
 }
 function Game(){
   return <div className="game">
-    <p>We Connect We Grow We Win,Connect The Peers To Win</p>
+    <p className="game-heading margin">We Connect We Grow We Win,Connect The Peers To Win</p>
     <GameCanvas/>
   </div>
 }
@@ -31,7 +31,7 @@ return <PearApp heading={app.heading} image={app.image}/>
   </section>)
 }
 function PearApp(props){
-  return ( <section className="project-section">
+  return ( <section className="project-section margin">
       <div class="project-item">
         <img src={props.image}/>
       </div>
@@ -44,7 +44,7 @@ function PearApp(props){
       return(<div>   <section class="projects-section">
 
         <Title title={props.heading} />
-        <p class="section-subtitle">
+        <p class="section-subtitle margin">
           {props.paragraph1}
         </p>
         <PearApps/>

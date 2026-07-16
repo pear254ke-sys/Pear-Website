@@ -34,9 +34,9 @@ const reviewData=[
   },
   {
     id: 6,
-    alt:"image of kathtrein",
-    name: "Kathrein",
-    heading: "Student",
+    alt:"image of kats",
+    name: "Kats",
+    heading: "BioMed Student",
     text: "simple ideas but very powerful direction, this can grow into something big",
     image:katsPic
   },

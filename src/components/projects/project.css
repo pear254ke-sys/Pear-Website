@@ -21,6 +21,9 @@ justify-content: center;
 align-items: center;
 
 }
+.margin{
+  margin-left:0.5em
+}
 .project-item:hover{
   transform: scale(1.01);
   cursor: pointer;

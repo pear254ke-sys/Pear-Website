@@ -1,7 +1,3 @@
-.carousel .slide { 
-    padding: 20px 10px; 
-    
-}
 
 .review-card {
   width: 100%; 
@@ -58,22 +54,32 @@
   content:"`"
 }
 
-.carousel-root {
-    max-width: 100%;
-  }
-  .carousel.carousel-slider {
-    overflow: hidden; 
-  }
-  .slide{
-    box-sizing: border-box
-  }
-  .carousel-root {
-    width: 100%;
-    max-width: 100vw;
-    overflow: hidden;
+.embla {
+  overflow: hidden;
+  width: 100%;
 }
-.carousel.carousel-slider {
-    overflow: visible !important;
-    margin: 2rem auto; 
 
-padding:2em;}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding-left: 1rem; 
+}
+
+
+@media (min-width: 768px) {
+  .embla__slide {
+    flex: 0 0 45%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .embla__slide {
+    flex: 0 0 30%;
+  }
+}

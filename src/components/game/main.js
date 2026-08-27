@@ -27,7 +27,7 @@ function startGame(canvas,assets,dim){
 //ENEMY PROPERTIES
   const  ENEMY_COUNT= 20
   const  ENEMY_SIZE= 32 * gameScaleX
-  const  ENEMY_RATE= 2
+  const  ENEMY_RATE= 4
   const  ENEMY_START= PEAR_START + PEAR_COUNT 
   const  ENEMY_SHRINK_RATE=0.10
   const  ENEMY_GROW_RATE=100
@@ -158,6 +158,8 @@ const EXPLOSION_ARRAY_MAX_SIZE=16
       if (explosion_array[i + 2] < explosion_max_radius) {
         explosion_array[i + 2] += 64 * dt; 
       }
+    }
+    for (let i = 0; i < explosion_array_current_write_index; i += 4) {
       if (explosion_array[i + 3] > 0) {
         explosion_array[i + 3] -= 1.6 * dt;
       }

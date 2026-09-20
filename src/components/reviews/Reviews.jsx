@@ -1,17 +1,15 @@
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import { getCurrentTextData, getStaticData } from "../../Data_File/dataAbstract";
+import { getReviewData } from "../../Data_File/dataAbstract.jsx";
 import Title from "../title/Title.jsx";
 
-// Import your custom styling to handle layout and item sizing
-import "./carousel.css";
+
+import "./reviews.css";
 
 function Reviews_Carousel() {
-  const { reviewData } = getStaticData();
-  const homePageReviewsHeading = getCurrentTextData("pageText", "homePageReviewsHeading");
-
-  // Initialize Embla with loop configuration and the Autoplay plugin
+  const  {reviewData,homePageReviewsHeading}  = getReviewData();
+ 
   const [emblaRef] = useEmblaCarousel(
     { loop: true }, 
     [Autoplay({ delay: 3000, stopOnInteraction: false })]
@@ -21,12 +19,12 @@ function Reviews_Carousel() {
     <div>
       <Title title={homePageReviewsHeading} />
       
-      {/* Embla Viewport */}
+
       <div className="embla" ref={emblaRef}>
-        {/* Embla Container */}
+
         <div className="embla__container">
           {reviewData.map((review, index) => (
-            /* Embla Slide Wrapper */
+    
             <div className="embla__slide" key={index}>
               <Item 
                 name={review.name} 

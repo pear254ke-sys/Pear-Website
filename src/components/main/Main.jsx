@@ -4,15 +4,14 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { getCurrentTextData,getImageFromData } from "../../Data_File/dataAbstract"
+import {getMainSectionData} from "../../Data_File/dataAbstract"
 gsap.registerPlugin(ScrollTrigger);
 function Main(){
-    const sectionsData=getCurrentTextData("sectionData");
-    const homePageSectionHeading=getCurrentTextData("pageText","homePageSectionHeading")
+    const {mergedSectionData,homePageSectionHeading}=getMainSectionData()
+    const sectionsData=mergedSectionData;
     const sections=sectionsData.map((section)=>{
-       let sectionData=getImageFromData("sectionData",section.id)
 
-        return <Section key={section.id} heading={section.heading} alt={section.alt} body={section.body} direction={sectionData["direction"]} image={sectionData["image"]}/>
+        return <Section key={section.id} heading={section.heading} alt={section.alt} body={section.body} direction={section.direction} image={section.image}/>
     })
 
 return(<main className="main-class">

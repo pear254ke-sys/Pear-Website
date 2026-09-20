@@ -1,7 +1,7 @@
 import { sharedDataEng,sharedDataSwa,sharedDataFrench,sharedDataGerman } from "./sharedData"
 import { sectionDataGearEng,sectionDataGearSwa,sectionDataPearEng, sectionDataPearSwa,sectionDataPearFrench,sectionDataGearFrench,sectionDataPearGerman,sectionDataGearGerman} from "./unsharedData"
 
-const translator={
+const translations={
   german:{
 pear:{...sharedDataGerman,...sectionDataPearGerman},
 gear:{...sharedDataGerman,...sectionDataGearGerman}
@@ -35,10 +35,6 @@ gear:{...sharedDataGerman,...sectionDataGearGerman}
       ...sectionDataGearSwa
      
   }
-  
-        
-
-    
     }
-}
-export default translator
+} 
+export default translations

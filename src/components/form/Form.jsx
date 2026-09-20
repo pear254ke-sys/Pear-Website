@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import Title from '../title/Title';
-import { getCurrentTextData } from '../../Data_File/dataAbstract'; 
+import { getFormSectionData } from '../../Data_File/dataAbstract'; 
 import "./form.css"
 function Form() {
     const [status, setStatus] = useState("");
+    const {formPageHeading,formLabels}=getFormSectionData()
     
-    
-    const pageText = getCurrentTextData("pageText");
-    const formLabels = getCurrentTextData("formLabels");
     const handleSubmit = (e) => {
         e.preventDefault();
         setStatus("sent");
@@ -19,7 +17,7 @@ function Form() {
         <section className={`contact ${status}`} id="contact">
             <div className="contact-container">
                 <div className="contact-header">
-                    <Title title={pageText.formPageHeading} />
+                    <Title title={formPageHeading} />
                     <p>{formLabels.subtext}</p>
                 </div>
 

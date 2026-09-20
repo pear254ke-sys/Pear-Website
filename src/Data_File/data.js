@@ -1,11 +1,5 @@
 import {gearBanner,breePic,brianMuhiaPic,startupImage,ideaImage,factoryImage,martkingStevePic,melvinMuyaPic,jamesPic,muthiePic,georgePic,stevePic,katsPic,muyaPic,charlesPic,brianPic,uginePic,facebook,instagram,twitter,github,gearVerticalVine,pearVerticalVine,pearBanner,community,peers,peersConn,darkLogo, camshareIcon} from "./dataImages.js"
 
-
-
-const accordianData=[
-    {id: 1, heading:  "heading",text:"text" },
-    { id: 2, heading: "heading", text: "text" },
-]
 const reviewData=[
   {alt:"image of brian ruhiu",id:1,name:"Brian Ruhiu",heading:"Computer Programmer",text:"best thing since mpesa",image:brianPic},
   {alt:"image of charles kuria",d:2,name:"Charles Kuria",heading:"Gamer/Artist",text:"a fresh of breath air in the kenyan tech space",image:charlesPic},{
@@ -72,85 +66,15 @@ const reviewData=[
     text: "gear approach of building many small projects is smart, more chances to win",
     image:georgePic
   }]
-const servicesData=[{
-    id:1,
-    heading:"Frontend Development",
-    text:"text",
-    skills:{
-        1:"HTML, CSS, JavaScript",
-        2:"React / Vue",
-        3:"Responsive Design",
-    }
-},{
-    id:2,
-    heading:"Backend Development",
-    text:"text",
-    skills:{
-        1:"APIs & Databases",
-        2:"Authentication",
-        3:"Cloud & Server Logic",
-
-    }
-},
-{
-    id:3,
-    heading:"Mobile Development",
-    text:"text",
-    skills:{
-        1:"Flutter / React Native",
-        2:"Native Integrations",
-        3:"App Store Deployment",
-
-    }
-},
-{
-    id:4,
-    heading:"Web Design",
-    text:"text",
-    skills:{
-        1:"UI / UX Design",
-        2:"Wireframes & Prototypes",
-        3:"Brand Consistency",
-
-    }
-}]
-const titleData=[{id:1,title:"Driven By Ideas"},{id:2,title:"What Kenyans Have To Say"},{id:3,title:"Meet The Founders"},{id:4,title:"Explore What We Built"},{id:5,title:"Services"},{id:6,title:"Contact Us"}]
-const pageText={
-  servicePageHeading:"text",
-  servicePageParagraph:"text",
-  appPageHeading:"text",
-  appPageParagraph:"text",
-  appPageDemoHeading:"text",
-  appPageDemoParagraph:"text",
-  appPagePlayBtn:"text",
-  homePageSectionHeading:"text",
-  homePageReviewsHeading:"text",
-  homePageFoundersHeading:"text",
-  demoParagraph:"text",
-  demoHeading:"text",
-  demoParagraph2:"text",
-  followHeading:"text",
-  formPageHeading:"text",
-}
-const formLabels={   name: "text",
-  email: "text",
-  message: "text",
-  placeholderName: "text",
-  placeholderEmail: "text",
-  placeholderMsg: "text",
-  btn: "text",
-  subtext: "text"}
 const foundersData = [
   {
     id: 1,
-    alt:"alt",
     name: "Brian",
     role: "Computer Programmer",
     image: brianMuhiaPic,
   },
   {
     id: 2,
-    alt:"alt",
     name: "Muya",
     role: "Writer/Swimming Coach",
     image: melvinMuyaPic,
@@ -158,7 +82,6 @@ const foundersData = [
   },
   {
     id: 3,
-    alt:"alt",
     name: "Martking Highness",
     role: "Artist/Musician",
     image: martkingStevePic,
@@ -166,38 +89,31 @@ const foundersData = [
   }
 ];
 const navData=[
-  {id:1,name:"name",to:"/"},
-  {id:2,name:"name",to:"/apps"},
-  // {id:3,name:"name",to:"/services"},
-  {id:3,name:"name",to:"/contact"}
+  {id:1,to:"/"},
+  {id:2,to:"/apps"},
+  {id:3,to:"/contact"}
 ]
 
 const pearSectionData=[{
-  id:1,image:darkLogo,heading:"heading",body:"body"
-  ,direction:"right",alt:"alt"},{id:2,heading:"heading",alt:"alt",body:"body",image:peersConn,direction:"left"},{id:3,heading:"heading",body:"body",image:peers,alt:"alt",direction:"right"},{
-  id:4,heading:"heading",body:"body",image:community
-,alt:"alt",direction:"left"    }]
+  id:1,image:darkLogo
+  ,direction:"right"},{id:2,image:peersConn,direction:"left"},{id:3,image:peers,direction:"right"},{
+  id:4,image:community
+,direction:"left"    }]
 const gearSectionData=[{
-  id:1,image:darkLogo,heading:"heading",body:"body"
-  ,direction:"right",alt:"alt"},{id:2,heading:"heading",alt:"alt",body:"body",image:factoryImage,direction:"left"},{id:3,heading:"heading",body:"body",image:ideaImage,alt:"alt",direction:"right"},{
-  id:4,heading:"heading",body:"body",image:startupImage
-,alt:"alt",direction:"left"    }]
+  id:1,image:darkLogo
+  ,direction:"right"},{id:2,image:factoryImage,direction:"left"},{id:3,image:ideaImage,direction:"right"},{
+  id:4,image:startupImage
+,direction:"left"    }]
 const bannerDataPear={
-  alt:"alt",
   banner:pearBanner,
-  bannerText:"bannerText",
-  bannerHeading:"bannerHeading"
 }
 const bannerDataGear={...bannerDataPear,banner:gearBanner}
-const imageData={
-  imageDataHeading:"imageDataHeading",
-  imageDataGoal:"imageDataGoal"
-}
+
 const appData=[{id:1,heading:"KameraStudio",image:camshareIcon}]
 const icons=[{id:1,image:facebook,link:"",alt:"facebook link to pear facebook account"},{id:2,image:instagram,link:"",alt:"instagram link to pear instagram account"},{id:3,image:github,link:"",alt:"github link to pear github account"},{id:4,image:twitter,link:"",alt:"twitter link to pear twitter account"}]
-const pearMode={serviceData:servicesData,imageData:imageData,sectionData:pearSectionData,bannerData:bannerDataPear,vine:pearVerticalVine,accordianData:accordianData,foundersData:foundersData,navData:navData,pageText:pageText}
-  const gearMode={serviceData:servicesData,imageData:imageData,bannerData:bannerDataGear,
-    accordianData:accordianData,foundersData:foundersData,
+const pearMode={sectionData:pearSectionData,bannerData:bannerDataPear,vine:pearVerticalVine,foundersData:foundersData,navData:navData}
+  const gearMode={bannerData:bannerDataGear,
+    foundersData:foundersData,
     sectionData:gearSectionData,
     vine:gearVerticalVine,bannerData:bannerDataGear,
      navData:navData}

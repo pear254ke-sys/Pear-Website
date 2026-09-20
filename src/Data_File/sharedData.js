@@ -37,25 +37,16 @@ const sharedDataGerman = {
       }
     ],
     navData: [
-      { id: 1, name: "Home", to: "to" },
-      { id: 2, name: "Unsere Apps", to: "to" },
-      // { id: 3, name: "Dienstleistungen", to: "to" },
-      { id: 3, name: "Kontakt", to: "to" }
-    ],
-    serviceData: [
-      { id: 1, text: "Sichere und skalierbare serverseitige Systeme, die deine Anwendungen antreiben." },
-      { id: 2, text: "Hochleistungsfähige mobile Anwendungen für Android- und iOS-Plattformen." },
-      { id: 3, text: "Klare, moderne Designs, die auf Benutzererfahrung und Konversion ausgerichtet sind." },
-      { id: 4, text: "Moderne, responsive Benutzeroberflächen, die auf Leistung und Barrierefreiheit optimiert sind." }
+      { id: 1, name: "Home"},
+      { id: 2, name: "Unsere Apps"},
+      { id: 3, name: "Kontakt" }
     ],
     pageText: {
-      servicePageHeading: "Unsere Dienstleistungen",
-      servicePageParagraph: "Wir bauen schnelle, skalierbare und benutzerorientierte digitale Produkte.",
-      appPageHeading: "Entdecke, was wir gebaut haben",
-      appPagePlayBtn: "Spielen",
+  
       homePageSectionHeading: "Von Ideen angetrieben",
       homePageReviewsHeading: "Was Kenianer zu sagen haben",
       homePageFoundersHeading: "Lerne die Gründer kennen",
+      demoText:"Wir verbinden, wir wachsen, wir gewinnen; verbinde die Gleichgesinnten, um zu gewinnen.",
       demoParagraph: "Sieh dir unsere Projekte an und probiere eine interaktive Demo aus, um das Potenzial von Peer-to-Peer-Technologien zu verstehen.",
       demoHeading: "Interaktive Demo",
       demoParagraph2: "Ein kleines Experiment, das zeigt, wie direkte Verbindungen wachsen. Wir verbinden uns, wir bauen auf, und gemeinsam wachsen wir.",
@@ -101,25 +92,16 @@ const sharedDataEng={ bannerData:{bannerText:"Explore What We Build"
           }
     ],
      navData:[
-        {id:1,name:"Home",to:"to"},
-        {id:2,name:"Our Apps",to:"to"},
-        // {id:3,name:"Services",to:"to"},
-        {id:3,name:"Contact Us",to:"to"}
+        {id:1,name:"Home"},
+        {id:2,name:"Our Apps"},
+        {id:3,name:"Contact Us"}
       ],
-
-    serviceData:[{id:1,text:"Secure and scalable server-side systems that power your applications."},
-      {id:2,text:"High-performance mobile applications for Android and iOS platforms."},
-      {id:3,text:" Clean, modern designs focused on user experience and conversion."},
-      {id:4,text:"   Modern, responsive user interfaces built with performance andaccessibility in mind."}]
-    , 
     pageText:{
-      servicePageHeading:"Our Services",
-      servicePageParagraph:"We build fast, scalable, and user-focused digital products.",
-        appPageHeading:"Explore What We Built",
-        appPagePlayBtn:"play",
+     
         homePageSectionHeading:"Driven By Ideas",
         homePageReviewsHeading:"What Kenyans Have To Say",
         homePageFoundersHeading:"Meet The Founders",
+        demoText:"We Connect We Grow We Win,Connect The Peers To Win",
         demoParagraph:"See our Apps and try out an interactive demo to understand the potential of peer-powered technologies.",
         followHeading:"Follow Pear",
         formPageHeading:"Contact Us",
@@ -165,26 +147,15 @@ const sharedDataSwa={
         }
     ],
     navData: [
-        {id: 1, name: "Mwanzo", to: "to"},
-        {id: 2, name: "App Zetu", to: "to"},
-        // {id: 3, name: "Huduma", to: "to"},
-        {id: 3, name: "Wasiliana Nasi", to: "to"}
-    ],
-    
-    serviceData: [
-        {id: 1, text: "Mifumo ya seva iliyo salama na inayoweza kukua ili kuendesha programu zako."},
-        {id: 2, text: "Programu za simu zenye utendaji wa juu kwa ajili ya Android na iOS."},
-        {id: 3, text: "Mionekano safi na ya kisasa inayolenga uzoefu wa mtumiaji na matokeo."},
-        {id: 4, text: "Mifumo ya kisasa ya tovuti iliyojengwa kwa kuzingatia kasi na urahisi wa matumizi."}
+        {id: 1, name: "Mwanzo",},
+        {id: 2, name: "App Zetu",},
+        {id: 3, name: "Wasiliana Nasi"}
     ],
     pageText: {
-        servicePageHeading: "Huduma Zetu",
-        servicePageParagraph: "Tunajenga bidhaa za kidijitali zenye kasi, zinazoweza kukua, na zinazomlenga mtumiaji.",
-        appPageHeading: "Gundua Tulichojenga",
-        appPagePlayBtn: "cheza",
         homePageSectionHeading: "Inaongozwa na Mawazo",
         homePageReviewsHeading: "Wakenya Wanasemaje",
         homePageFoundersHeading: "Kutana na Waanzilishi",
+        demoText:"Tunaungana, Tunakua, Tunashinda Unganisha Marika Ili Ushinde",
         demoParagraph: "Tazama miradi yetu na ujaribu demo yetu ili kuelewa uwezo wa teknolojia zinazoendeshwa na watu.",
         demoHeading: "Demo ya Maingiliano",
         demoParagraph2: "Jaribio dogo linaloonyesha jinsi miunganisho ya moja kwa moja inavyokua. Tunaungana, tunajenga, na kwa pamoja tunakua.",
@@ -233,25 +204,16 @@ const sharedDataFrench={
         }
     ],
     navData: [
-        {id: 1, name: "Accueil", to: "to"},
-        {id: 2, name: "Nos Apps", to: "to"},
-        // {id: 3, name: "Services", to: "to"},
-        {id: 3, name: "Contactez-nous", to: "to"}
-    ],
-    serviceData: [
-        {id: 1, text: "Des systèmes serveurs sécurisés et évolutifs pour propulser vos applications."},
-        {id: 2, text: "Des applications mobiles haute performance pour Android et iOS."},
-        {id: 3, text: "Des designs épurés et modernes axés sur l'expérience utilisateur et la conversion."},
-        {id: 4, text: "Interfaces réactives et modernes bâties avec une attention particulière à la performance et l'accessibilité."}
+        {id: 1, name: "Accueil"},
+        {id: 2, name: "Nos Apps"},
+
+        {id: 3, name: "Contactez-nous"}
     ],
     pageText: {
-        servicePageHeading: "Nos Services",
-        servicePageParagraph: "Nous bâtissons des produits numériques rapides, évolutifs et centrés sur l'utilisateur.",
-        appPageHeading: "Explorez nos créations",
-        appPagePlayBtn: "jouer",
         homePageSectionHeading: "Porté par les idées",
         homePageReviewsHeading: "Ce qu'en disent les Kenyans",
         homePageFoundersHeading: "Rencontrez les fondateurs",
+        demoText:"Nous nous connectons, nous grandissons, nous gagnons ; connectez les pairs pour gagner",
         demoParagraph: "Découvrez nos projets et essayez une démo interactive pour comprendre le potentiel des technologies entre pairs.",
         demoHeading: "Démo Interactive",
         demoParagraph2: "Une petite expérience montrant comment les connexions directes se développent. On se connecte, on bâtit, et ensemble on grandit.",

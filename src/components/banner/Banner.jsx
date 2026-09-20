@@ -1,10 +1,12 @@
 import "./banner.css"
 import { NavLink } from 'react-router';
-import { getCurrentImageData,getCurrentTextData } from "../../Data_File/dataAbstract";
+import { getBannerData} from "../../Data_File/dataAbstract";
 function Banner(){
-
-   const linkText=getCurrentTextData("bannerData","bannerText")
-   const bannerImage=getCurrentImageData("bannerData","banner")    
+    const bannerData=getBannerData()
+   const linkText=bannerData["bannerText"]
+   const bannerImage=bannerData["banner"]  
+   
+  
     return(
         <section className="banner-container">
             <article className="banner-content">

@@ -4,7 +4,8 @@ import pear from '../../assets/dark_logo.webp';
 import './header.css';
 import ToggleBtn from '../toggleBtn/ToggleBtn';
 import Selectbox from '../selectbox/Selectbox';
-import { getCurrentTextData,getImageFromData } from "../../Data_File/dataAbstract"
+import Bot from "../chatbot/Bot";
+import { getNavData } from "../../Data_File/dataAbstract"
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,6 +20,7 @@ function Header() {
         <div className="control-btns">
         <Selectbox/>
         <ToggleBtn />
+        <Bot/>
         <MenuToggle isOpen={isOpen} toggleMenu={toggleMenu} />
         </div>
         
@@ -52,14 +54,9 @@ function MenuToggle({ isOpen, toggleMenu }) {
 }
 
 function Navbar({ isOpen, closeMenu }) {
-  const navData=getCurrentTextData("navData");
- 
+  const navData=getNavData()
   const links=navData.map((item)=>{
-    
-     let itemData=getImageFromData("navData",item.id)
-     
-
-      return <li key={item.id}><NavLink key={item.id} to={itemData.to} className="link" onClick={closeMenu}>{item.name}</NavLink></li>
+      return <li key={item.id}><NavLink key={item.id} to={item.to} className="link" onClick={closeMenu}>{item.name}</NavLink></li>
   })
   return (
     <nav className={`nav-bar ${isOpen ? 'active' : ''}`}>

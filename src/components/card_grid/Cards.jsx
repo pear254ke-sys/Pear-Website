@@ -1,17 +1,15 @@
 import "./cards.css"
 import Title from "../title/Title";
-import { getCurrentTextData,getImageFromData } from "../../Data_File/dataAbstract"
+import { getFoundersData} from "../../Data_File/dataAbstract"
 function Cards(){
-    const foundersData=getCurrentTextData("foundersData");
-    const homePageFoundersHeading=getCurrentTextData("pageText","homePageFoundersHeading")
-    const cards=foundersData.map((founder)=>{
-       let founderData=getImageFromData("foundersData",founder.id)
-
-        return <Card key={founder.id} name={founderData.name} image={founderData.image} role={founderData.role} text={founder.text} alt={founderData.alt}/>
+    const {mergedFounderData,founderHeading}=getFoundersData()
+  const cards=  mergedFounderData.map((founder)=>{
+return <Card key={founder.id} name={founder.name} image={founder.image} role={founder.role} text={founder.text} alt={founder.alt}/>
     })
+  
     return(
         <div>
-            <Title title={homePageFoundersHeading} />
+            <Title title={founderHeading} />
   <section className="wrapper">
             {cards}
         </section>

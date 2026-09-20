@@ -1,6 +1,6 @@
 import Banner from "../../components/banner/Banner"
 import Main from "../../components/main/Main"
-import  Reviews_Carousel  from "../../components/carousel/Carousel"
+import  Reviews_Carousel  from "../../components/reviews/Reviews"
 import Accordion from "../../components/accordion/Accordion"
 import Cards from "../../components/card_grid/Cards"
 import Images from "../../components/Image/Images"

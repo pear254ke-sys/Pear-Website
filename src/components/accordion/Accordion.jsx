@@ -1,8 +1,9 @@
 import './accordion.css';
+import Title from '../title/Title';
 import { useState } from 'react';
-import { getCurrentTextData } from '../../Data_File/dataAbstract';
+import { getAccordianData } from '../../Data_File/dataAbstract';
 function Accordion() {
-  const textData=getCurrentTextData("accordianData")
+  const textData=getAccordianData()
   const [openId, setOpenId] = useState(null);
   const handleToggle = (id) => {
     setOpenId(openId === id ? null : id); 
@@ -10,6 +11,7 @@ function Accordion() {
 
   return (
     <section className="accordion-container">
+      <Title title="Peer Goals And Ideas"/>
       {textData.map((item) => (
         <AccordionItem
           key={item.id}

@@ -2,9 +2,8 @@ import {useState,useEffect,useRef,useContext} from 'react'
 import canvasGame from "./game";
 import loadedAudio from '../../Data_File/gameAudio';
 import loadedImages from '../../Data_File/gameImages';
-export default function GameCanvas(props) {
+export default function GameCanvas() {
   const canvasRef = useRef(null);
-  const gameStateRef = useRef(props.gameState);
   const assets={images:loadedImages,audio:loadedAudio}
   const [screenSize, setScreenSize] = useState({
     width: window.innerWidth,

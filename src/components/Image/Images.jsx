@@ -1,9 +1,8 @@
 import React from "react";
 import "./images.css";
-import {getCurrentTextData} from "../../Data_File/dataAbstract";
-function Images() {
-    const imageDataHeading=getCurrentTextData("imageData","imageDataHeading")
-    const imageDataGoal=getCurrentTextData("imageData","imageDataGoal")
+import {getHeroSectionData} from "../../Data_File/dataAbstract";
+function HeroSection() {
+    const {imageDataHeading,imageDataGoal}=getHeroSectionData()
   return (
     <section className="hero-section">
       <div className="hero-overlay"></div>
@@ -19,4 +18,4 @@ function Images() {
   );
 }
 
-export default Images;
+export default HeroSection;

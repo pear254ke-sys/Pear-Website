@@ -1,28 +1,28 @@
 import Title from "../title/Title"
-import { getCurrentTextData,getStaticData } from "../../Data_File/dataAbstract.jsx";
-import { useState } from "react";
+import { getAppData } from "../../Data_File/dataAbstract.jsx";
+
 import GameCanvas from "../game/CanvasGame.jsx";
 import "./project.css"
 function Project(){
-  const pageInfo=getCurrentTextData("pageText");
-  
+ 
+const {appPageHeading,followHeading,demoParagraph,demoHeading,demoText}=getAppData()
 
     return(<>
-     <Demo heading={pageInfo["appPageHeading"]} paragraph1={pageInfo["demoParagraph"]} btnTxt={pageInfo["appPagePlayBtn"]}  paragraph2={pageInfo["demoParagraph"]} demoHeading={pageInfo["demoHeading"]} />
-     <Game/>
-      <FollowSection heading={pageInfo["followHeading"]}/>
+     <Demo heading={appPageHeading} paragraph1={demoParagraph}  demoHeading={demoHeading} />
+     <Game text={demoText}/>
+      <FollowSection heading={followHeading}/>
     </>
      
     )
 }
-function Game(){
+function Game(props){
   return <div className="game">
-    <p className="game-heading margin">We Connect We Grow We Win,Connect The Peers To Win</p>
+    <p className="game-heading margin">{props.text}</p>
     <GameCanvas/>
   </div>
 }
 function PearApps(){
-  const {appData}=getStaticData()
+  const {appData}=getAppData()
   const apps=appData.map((app)=>{
 return <PearApp heading={app.heading} image={app.image}/>
   })
@@ -39,8 +39,7 @@ function PearApp(props){
     </section>)
   }
   function Demo(props){
-    const [state, setState] = useState(true);
-   const handleClick = () => setState(prev => !prev);;
+
       return(<div>   <section class="projects-section">
 
         <Title title={props.heading} />

@@ -3,7 +3,6 @@
 
 
 function startGame(canvas,assets,dim){
-
   setGameWindow(canvas,dim.width,dim.height)
   const ctx = canvas.getContext("2d");
   const gameScaleX=dim.width/1000

@@ -107,6 +107,7 @@ const followHeading=translations[lang][mode][pageTextKey][followHeadingKey]
 const demoParagraph=translations[lang][mode][pageTextKey][demoParagraphKey]
 const demoHeading=translations[lang][mode][pageTextKey][demoHeadingKey]
 const demoText=translations[lang][mode][pageTextKey][demoTextKey]
+
     return {appData,appPageHeading,followHeading,demoParagraph,demoHeading,demoText}  
 }
 function getReviewData(){

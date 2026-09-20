@@ -42,7 +42,7 @@ const sharedDataGerman = {
       { id: 3, name: "Kontakt" }
     ],
     pageText: {
-  
+      appPageHeading:"Unsere Apps",
       homePageSectionHeading: "Von Ideen angetrieben",
       homePageReviewsHeading: "Was Kenianer zu sagen haben",
       homePageFoundersHeading: "Lerne die Gründer kennen",
@@ -97,7 +97,7 @@ const sharedDataEng={ bannerData:{bannerText:"Explore What We Build"
         {id:3,name:"Contact Us"}
       ],
     pageText:{
-     
+      appPageHeading:"Our Apps",
         homePageSectionHeading:"Driven By Ideas",
         homePageReviewsHeading:"What Kenyans Have To Say",
         homePageFoundersHeading:"Meet The Founders",
@@ -105,6 +105,7 @@ const sharedDataEng={ bannerData:{bannerText:"Explore What We Build"
         demoParagraph:"See our Apps and try out an interactive demo to understand the potential of peer-powered technologies.",
         followHeading:"Follow Pear",
         formPageHeading:"Contact Us",
+        appPageHeading:"Our Apps"
       },
       formLabels:{   name: "Full Name",
         email: "Email Address",
@@ -152,6 +153,7 @@ const sharedDataSwa={
         {id: 3, name: "Wasiliana Nasi"}
     ],
     pageText: {
+      appPageHeading:"Programu zetu",
         homePageSectionHeading: "Inaongozwa na Mawazo",
         homePageReviewsHeading: "Wakenya Wanasemaje",
         homePageFoundersHeading: "Kutana na Waanzilishi",
@@ -210,6 +212,7 @@ const sharedDataFrench={
         {id: 3, name: "Contactez-nous"}
     ],
     pageText: {
+      appPageHeading:"Nos apps",
         homePageSectionHeading: "Porté par les idées",
         homePageReviewsHeading: "Ce qu'en disent les Kenyans",
         homePageFoundersHeading: "Rencontrez les fondateurs",

@@ -6,7 +6,7 @@ import "./project.css"
 function Project(){
  
 const {appPageHeading,followHeading,demoParagraph,demoHeading,demoText}=getAppData()
-
+console.log(appPageHeading)
     return(<>
      <Demo heading={appPageHeading} paragraph1={demoParagraph}  demoHeading={demoHeading} />
      <Game text={demoText}/>
@@ -16,6 +16,7 @@ const {appPageHeading,followHeading,demoParagraph,demoHeading,demoText}=getAppDa
     )
 }
 function Game(props){
+  
   return <div className="game">
     <p className="game-heading margin">{props.text}</p>
     <GameCanvas/>
@@ -44,7 +45,7 @@ function PearApp(props){
 
         <Title title={props.heading} />
         <p class="section-subtitle margin">
-          {props.paragraph1}
+          {props.paragraph1}  
         </p>
         <PearApps/>
       </section></div>   )

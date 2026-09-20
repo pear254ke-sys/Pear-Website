@@ -1,6 +1,6 @@
 .main-content {
     max-width: 768px;
-    margin:5rem auto;
+    margin:8rem auto;
     font-family: var(--font-family);
     background-color:  var(--bg-light-smoke); 
     border-radius:10px;

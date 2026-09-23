@@ -5,7 +5,8 @@ import enemy from "../assets/bomb.webp"
 import gameOver from "../assets/game_over.webp"
 import gamePaused from "../assets/paused.webp"
 import win from "../assets/win.webp"
-const unloadedImages={"pear":pear,"player":player,"background":background,"enemy":enemy,"gameOver":gameOver,"gamePaused":gamePaused,"win":win};
+import loadingScreen from "../assets/loading_screen.webp"
+const unloadedImages={"pear":pear,"player":player,"background":background,"enemy":enemy,"gameOver":gameOver,"gamePaused":gamePaused,"win":win,"loadingScreen":loadingScreen};
 let loadedImages={};
 function loadImages(configImages){
 
